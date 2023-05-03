@@ -7,7 +7,7 @@ public class CameraScript : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Vector3 targetPosition = playerTransform.position;
         targetPosition.z = transform.position.z;

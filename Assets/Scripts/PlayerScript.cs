@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerScript: MonoBehaviour
 {
-    public static PlayerScript instance { get; private set; }
+    public static PlayerScript Instance { get; private set; }
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

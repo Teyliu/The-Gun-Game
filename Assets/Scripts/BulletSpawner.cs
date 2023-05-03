@@ -5,73 +5,52 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletResource;
-    public float minRotation;
-    public float maxRotation;
     public int numberOfBullets;
-    public bool isRandom;
-    public bool shootAtPlayer;
     public bool enableSpread;
     public float spreadAngle;
+    public float minSpeed;
+    public float maxSpeed;
 
-    public float cooldown;
-    float timer;
     public float bulletSpeed;
-    public Vector2 bulletVelocity;
 
     private Transform targetTransform;
 
     float[] rotations;
+    float spawnCooldown;
+
     void Start()
     {
-        if (shootAtPlayer)
-        {
-            targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        timer = cooldown;
+        targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         rotations = new float[numberOfBullets];
-        if (!isRandom)
-        {
-            DistributedRotations();
-        }
-    }
-
-    void Update()
-    {
-        if (timer <= 0)
-        {
-            SpawnBullets();
-            timer = cooldown;
-        }
-        timer -= Time.deltaTime;
-    }
-
-    public float[] RandomRotations()
-    {
-        for (int i = 0; i < numberOfBullets; i++)
-        {
-            rotations[i] = Random.Range(minRotation, maxRotation);
-        }
-        return rotations;
+        spawnCooldown = 0f;
     }
 
     public float[] DistributedRotations()
     {
+        float angleStep = 50f / numberOfBullets;
+        float currentAngle = 0f;
         for (int i = 0; i < numberOfBullets; i++)
         {
-            var fraction = (float)i / ((float)numberOfBullets - 1);
-            var difference = maxRotation - minRotation;
-            var fractionOfDifference = fraction * difference;
-            rotations[i] = fractionOfDifference + minRotation;
+            rotations[i] = currentAngle;
+            currentAngle += angleStep;
         }
         return rotations;
     }
 
+    void Update()
+    {
+        spawnCooldown -= Time.deltaTime;
+
+        if (spawnCooldown <= 0f)
+        {
+            SpawnBullets();
+            spawnCooldown = bulletSpeed;
+        }
+    }
+
     public GameObject[] SpawnBullets()
     {
-        if (isRandom)
-        {
-            RandomRotations();
-        }
+        DistributedRotations();
 
         GameObject[] spawnedBullets = new GameObject[numberOfBullets];
         for (int i = 0; i < numberOfBullets; i++)
@@ -82,25 +61,23 @@ public class BulletSpawner : MonoBehaviour
                 spread = Random.Range(-spreadAngle, spreadAngle);
             }
 
-            Vector3 position = transform.position + (Quaternion.Euler(0f, 0f, rotations[i] + spread) * Vector3.right * bulletSpeed * Time.deltaTime);
+            Vector3 direction = targetTransform.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            angle += rotations[i] + spread;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            spawnedBullets[i] = Instantiate(bulletResource, position, Quaternion.identity);
+            float speed = Random.Range(minSpeed, maxSpeed);
+
+            Vector3 bulletPosition = transform.position + rotation * Vector3.right * speed * Time.deltaTime;
+            Vector3 offset = Random.insideUnitCircle * 0.1f;
+
+            spawnedBullets[i] = Instantiate(bulletResource, bulletPosition + offset, rotation);
 
             var b = spawnedBullets[i].GetComponent<Bullet>();
-
-            if (shootAtPlayer)
-            {
-                Vector3 direction = (targetTransform.position - position).normalized;
-                b.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-
-                b.velocity = direction * bulletSpeed;
-            }
-            else
-            {
-                b.transform.rotation = Quaternion.Euler(0f, 0f, rotations[i] + spread);
-                b.velocity = transform.right * bulletSpeed;
-            }
+            b.SetDirection(rotation * Vector3.right);
+            b.speed = speed;
         }
+
         return spawnedBullets;
     }
 }

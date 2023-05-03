@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4ffa03ebf20c21c4ca6ccd45c0b3c720
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Cursed Timer ULiL
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: dfb1b4ee1066fd94783b88684445e9ff, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

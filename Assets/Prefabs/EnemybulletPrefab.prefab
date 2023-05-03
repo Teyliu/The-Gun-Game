@@ -47,9 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1897f74fe287a14e9f17569c5824d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0}
-  speed: 2
-  rotation: 0
+  speed: 5
+  damage: 1
+  lifetime: 6
+  bulletSounds:
+  - {fileID: 8300000, guid: 8b9e0d5ab90cdfd479959c48ab8a4090, type: 3}
+  - {fileID: 8300000, guid: fc48c9d7fbbe8314bb134510088789dc, type: 3}
 --- !u!50 &3653596195107396169
 Rigidbody2D:
   serializedVersion: 4
@@ -112,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c024df975f0aaef41b8ba135beee406d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 596eb7a75291a39448e7d924a00ab85f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,9 +136,9 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.32, y: 0.32}
+  m_Offset: {x: 0.00089331716, y: 0.0013400018}
+  m_Size: {x: 0.050212547, y: 0.102919385}
   m_Direction: 0

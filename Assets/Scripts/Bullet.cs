@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector2 velocity;
     public float speed;
-    public float rotation;
-    void Start()
+    public int damage;
+    public float lifetime;
+    public AudioClip[] bulletSounds;
+
+    private Vector3 direction;
+
+    private void Start()
     {
-        transform.rotation = Quaternion.Euler(0, 0, rotation);
+        if (bulletSounds.Length > 0)
+        {
+            int randomIndex = Random.Range(0, bulletSounds.Length);
+            AudioClip bulletSound = bulletSounds[randomIndex];
+            AudioSource.PlayClipAtPoint(bulletSound, transform.position);
+        }
+
+        Destroy(gameObject, lifetime);
     }
+
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime * velocity);
+        transform.position += speed * Time.deltaTime * direction;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetDirection(Vector3 direction)
+    {
+        this.direction = direction;
     }
 }
