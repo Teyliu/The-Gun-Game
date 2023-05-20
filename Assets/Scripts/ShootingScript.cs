@@ -33,15 +33,23 @@ public class ShootingScript : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
     }
 
-    public void IncreaseFireRate(float amount)
+    public void IncreaseFireRate(float modifier, float duration)
     {
-        if (amount > 0)
+        if (modifier > 0)
         {
-            currentFireRate = baseFireRate / (1 + amount);
+            currentFireRate = baseFireRate / (1 + modifier);
         }
         else
         {
-            currentFireRate = baseFireRate * (1 - amount);
+            currentFireRate = baseFireRate * (1 - modifier);
         }
+
+        StartCoroutine(ResetFireRateAfterDelay(duration));
+    }
+
+    private IEnumerator ResetFireRateAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        currentFireRate = baseFireRate;
     }
 }

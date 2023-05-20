@@ -8,28 +8,19 @@ public class GunUpgradeScript : MonoBehaviour
     public AudioClip pickupSound;
 
     private ShootingScript shootingScript;
-    private float baseFireRate;
 
-    void Start()
+    private void Start()
     {
         shootingScript = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ShootingScript>();
-        baseFireRate = shootingScript.baseFireRate;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            shootingScript.IncreaseFireRate(fireRateModifier);
+            shootingScript.IncreaseFireRate(fireRateModifier, duration);
             AudioSource.PlayClipAtPoint(pickupSound, transform.position);
-            StartCoroutine(ResetFireRateAfterDelay(duration));
             Destroy(gameObject);
         }
-    }
-
-    IEnumerator ResetFireRateAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        shootingScript.IncreaseFireRate(-fireRateModifier);
     }
 }

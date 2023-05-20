@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRateModifier: 8
-  duration: 0.1
+  duration: 5
   pickupSound: {fileID: 8300000, guid: 006cde1c7784adb42b02d0f700f6ed9e, type: 3}
 --- !u!58 &6193008328229791232
 CircleCollider2D:
