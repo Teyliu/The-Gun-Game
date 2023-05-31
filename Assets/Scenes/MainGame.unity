@@ -1186,6 +1186,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea5ba9ae6669ea4fbb58af0441199d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2136165967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136165969}
+  - component: {fileID: 2136165968}
+  m_Layer: 0
+  m_Name: AllyGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2136165968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136165967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e353092fe92988440af0d696c53b7618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allySprites:
+  - {fileID: 21300000, guid: 934b675330690084e87abc1ffbc02105, type: 3}
+  - {fileID: 21300000, guid: 03fe60a1a4618184e9edcaf6204327d2, type: 3}
+  - {fileID: 21300000, guid: fc244dbd81c50674da9b22e5f6d0e113, type: 3}
+  - {fileID: 21300000, guid: f42272dacd60e31478a97a25cff2939d, type: 3}
+  - {fileID: 21300000, guid: 2d4c6a14693739141a3a1253c4854508, type: 3}
+  spawnDelay: 2
+  spawnRange: 2
+  maxAllies: 5
+  allyPrefab: {fileID: 240895319888013562, guid: 20b411b59de12e84580fb98ccbd1862d, type: 3}
+--- !u!4 &2136165969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136165967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61933166, y: 0.0100361295, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4720875548932687153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1205,6 +1259,14 @@ PrefabInstance:
       propertyPath: invincibilityTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4720875548298929057, guid: fe57d2782c5ae1e4f8bc231ee68f85c9, type: 3}
+      propertyPath: alliesCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720875548298929057, guid: fe57d2782c5ae1e4f8bc231ee68f85c9, type: 3}
+      propertyPath: trailPointPrefab
+      value: 
+      objectReference: {fileID: 6344279440530957458, guid: eb3e1067eb23a3047b10cc05235d406d, type: 3}
     - target: {fileID: 4720875548298929083, guid: fe57d2782c5ae1e4f8bc231ee68f85c9, type: 3}
       propertyPath: m_Name
       value: Player
