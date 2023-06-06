@@ -17,10 +17,12 @@ public class MovementScript : MonoBehaviour
     private float currentDashCooldown = 0f;
     private bool isInvulnerable = false;
     private float currentInvulnerabilityTime = 0f;
+    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
@@ -28,6 +30,9 @@ public class MovementScript : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         Vector2 movement = new(horizontalInput, verticalInput);
+
+        anim.SetFloat("MoveX", (movement.x));
+        anim.SetFloat("MoveY", (movement.y));
 
         if (!isDashing && currentDashCooldown <= 0f && Input.GetKeyDown(dashKey))
         {
