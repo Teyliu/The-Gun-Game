@@ -4,9 +4,14 @@ using TMPro;
 public class TutorialStepMovement : TutorialStepBase
 {
     public string tutorialMessage;
-    public KeyCode[] requiredKeys;
 
-    public TextMeshProUGUI tutorialText;
+    private TextMeshProUGUI tutorialText;
+    private bool isActionComplete = false;
+
+    private readonly KeyCode[] requiredKeys = {
+        KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D,
+        KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow
+    };
 
     private void Start()
     {
@@ -18,6 +23,7 @@ public class TutorialStepMovement : TutorialStepBase
     {
         tutorialText.text = tutorialMessage;
         gameObject.SetActive(true);
+        isActionComplete = false; 
     }
 
     public override void HideStep()
@@ -27,13 +33,18 @@ public class TutorialStepMovement : TutorialStepBase
 
     public override bool IsStepComplete()
     {
-        foreach (KeyCode key in requiredKeys)
+        if (!isActionComplete)
         {
-            if (Input.GetKeyDown(key))
+            foreach (KeyCode key in requiredKeys)
             {
-                return true;
+                if (Input.GetKeyDown(key))
+                {
+                    isActionComplete = true;
+                    break;
+                }
             }
         }
-        return false;
+
+        return isActionComplete;
     }
 }
