@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public abstract class TutorialStepBase : MonoBehaviour
 {
     public abstract bool IsStepComplete();
