@@ -57,6 +57,7 @@ public class EnemyScript : MonoBehaviour
             {
                 health -= bullet.damage;
                 Destroy(other.gameObject);
+                animator.SetTrigger("Die");
 
                 if (health <= 0)
                 {
