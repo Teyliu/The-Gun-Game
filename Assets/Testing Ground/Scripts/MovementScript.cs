@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
+    
+    //move
     public float moveSpeed = 5f;
     public float dashSpeed = 10f;
     public float dashTime = 0.5f;
@@ -12,14 +14,18 @@ public class MovementScript : MonoBehaviour
     public KeyCode dashKey = KeyCode.Space;
 
     private Rigidbody2D rb;
+    
+    //Dash 
     private bool isDashing = false;
     private float currentDashTime = 0f;
     private float currentDashCooldown = 0f;
     private bool isInvulnerable = false;
     private float currentInvulnerabilityTime = 0f;
    
+    //animator reference
     private Animator anim;
    
+    //Follow mouse position
     private Vector3 mousePos;
     private Camera mainCam;
     private bool facingRight = true;
