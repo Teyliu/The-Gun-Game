@@ -12,30 +12,12 @@ public class EnemyScript : MonoBehaviour
 
     private bool isDead = false;
 
-    private Animator animator;
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
-
     void Update()
     {
         if (!isDead)
         {
             Vector2 direction = (Vector2)PlayerScript.Instance.transform.position - (Vector2)transform.position;
             transform.Translate(movementSpeed * Time.deltaTime * direction.normalized);
-
-            if (direction.x > 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (direction.x < 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-            }
-
-            animator.SetFloat("Movement", Mathf.Abs(direction.magnitude));
         }
     }
 
@@ -57,7 +39,6 @@ public class EnemyScript : MonoBehaviour
             {
                 health -= bullet.damage;
                 Destroy(other.gameObject);
-                animator.SetTrigger("Die");
 
                 if (health <= 0)
                 {
