@@ -6647,6 +6647,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4872950125511885305, guid: 3da2ef1961d8ee24fa1dabb734dd75a3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.14900295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872950125511885305, guid: 3da2ef1961d8ee24fa1dabb734dd75a3, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0036242194
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872950125511885305, guid: 3da2ef1961d8ee24fa1dabb734dd75a3, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.098218545
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245061318610595131, guid: 3da2ef1961d8ee24fa1dabb734dd75a3, type: 3}
+      propertyPath: dashTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245061318610595131, guid: 3da2ef1961d8ee24fa1dabb734dd75a3, type: 3}
+      propertyPath: dashSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245061318610595131, guid: 3da2ef1961d8ee24fa1dabb734dd75a3, type: 3}
+      propertyPath: dashInvulnerabilityTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5794691278450812543, guid: 3da2ef1961d8ee24fa1dabb734dd75a3, type: 3}
       propertyPath: m_RootOrder
       value: 11

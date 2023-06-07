@@ -17,12 +17,19 @@ public class MovementScript : MonoBehaviour
     private float currentDashCooldown = 0f;
     private bool isInvulnerable = false;
     private float currentInvulnerabilityTime = 0f;
+   
     private Animator anim;
+   
+    private Vector3 mousePos;
+    private Camera mainCam;
+    private bool facingRight = true;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        transform.localScale = new Vector3(-1f, 1f, 1f);
     }
     void Update()
     {
@@ -31,8 +38,21 @@ public class MovementScript : MonoBehaviour
 
         Vector2 movement = new(horizontalInput, verticalInput);
 
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
         anim.SetFloat("MoveX", (movement.x));
         anim.SetFloat("MoveY", (movement.y));
+
+        if (mousePos.x > transform.position.x && facingRight )
+        {
+
+            Flip();
+        }
+        if (mousePos.x < transform.position.x && !facingRight )
+        {
+
+            Flip();
+        }
 
         if (!isDashing && currentDashCooldown <= 0f && Input.GetKeyDown(dashKey))
         {
@@ -74,13 +94,23 @@ public class MovementScript : MonoBehaviour
             isInvulnerable = false;
         }
 
-        if (movement.x > 0)
+
+        void Flip()
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+
+            facingRight = !facingRight;
         }
-        else if (movement.x < 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-    }
+
+        //if (movement.x > 0)
+        // {
+        //    transform.localScale = new Vector3(1f, 1f, 1f);
+        // }
+        // else if (movement.x < 0)
+        // {
+        //    transform.localScale = new Vector3(-1f, 1f, 1f);
+        // }
+    } 
 }
