@@ -6,6 +6,7 @@ public class WeaponParent : MonoBehaviour
 {
     private Vector3 mousePos;
     private Camera mainCam;
+    private bool facingLeft = true;
 
     private void Start()
     {
