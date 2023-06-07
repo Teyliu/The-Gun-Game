@@ -11,15 +11,47 @@ public class WeaponParent : MonoBehaviour
     private void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        transform.localScale = new Vector3(-1f, -1f, 1f);
+
     }
     private void Update()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-         Vector3 rotation = mousePos - transform.position;
+        Vector3 rotation = mousePos - transform.position;
 
-    float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-    transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        if (mousePos.x > transform.position.x && facingLeft )
+        {
+
+            FlipX();
+            
+
+        }
+        if (mousePos.x < transform.position.x && !facingLeft )
+        {
+
+            FlipX();
+            
+
+        }
     }
+
+
+
+    void FlipX()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        scale.y *= -1;
+        transform.localScale = scale;
+
+        facingLeft = !facingLeft;
+    }
+
+    
+
 }
