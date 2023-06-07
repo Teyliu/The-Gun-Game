@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -15,40 +16,34 @@ public class TutorialManager : MonoBehaviour
     {
         if (isTutorialComplete)
         {
-            // Tutorial is already complete, no need to proceed
             return;
         }
 
-        // Check if the current tutorial step is complete
         if (tutorialSteps[currentStepIndex].IsStepComplete())
         {
-            // Move to the next step
             MoveToNextStep();
         }
     }
 
     private void MoveToNextStep()
     {
-        // Hide the current step
         tutorialSteps[currentStepIndex].HideStep();
 
-        // Increment the step index
         currentStepIndex++;
 
         if (currentStepIndex >= tutorialSteps.Length)
         {
-            // Reached the end of the tutorial
             isTutorialComplete = true;
+
+            SceneManager.LoadScene("Level1");
             return;
         }
 
-        // Show the next step
         ShowCurrentStep();
     }
 
     private void ShowCurrentStep()
     {
-        // Show the current step
         tutorialSteps[currentStepIndex].ShowStep();
     }
 }

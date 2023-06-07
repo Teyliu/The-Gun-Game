@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c3c38e96f49ecdd44bf63f7ec7c96653
+guid: af2e9bf87d6c7034d91eb05c5db26128
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +104,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_0
+      name: Policia_Pana_Walk_Desmembrado_ 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8607e808abf76a448ad33cd63e25e932
+      internalID: 1300028569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policia_Pana_Walk_Desmembrado_ 1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fb4931839ebd84bb4d7f3249419bdd
+      internalID: 1382182811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policia_Pana_Walk_Desmembrado_ 1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f8a5294bcba504694426c9e11c0e0e
+      internalID: 19648794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policia_Pana_Walk_Desmembrado_ 1_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72456ead0e7e26345bde6c210e6efbc9
+      internalID: -1934221822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policia_Pana_Walk_Desmembrado_ 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec16432960349cd4f9fa3c7f0c694be5
+      internalID: 256191779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policia_Pana_Walk_Desmembrado_ 1_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e63560c0e0d5f84b815d012a7b50f9b
+      internalID: -713573287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policia_Pana_Walk_Desmembrado_ 1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7db2241b8db44cd4aa4af69a11146212
-      internalID: -2139516024
+      spriteID: 3980ad3e879031d43856073cad1638a7
+      internalID: 206957722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_1
+      name: Policia_Pana_Walk_Desmembrado_ 1_7
       rect:
         serializedVersion: 2
         x: 32
@@ -139,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77e992dd8b4e319428e54724a3399841
-      internalID: -2030794453
+      spriteID: 3a094c49aa4c892498189cfa1c724054
+      internalID: -129781439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_2
+      name: Policia_Pana_Walk_Desmembrado_ 1_8
       rect:
         serializedVersion: 2
         x: 0
@@ -160,29 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cbc27b9c30838d4f83cb64d063ab851
-      internalID: -391268866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d2b088ab5c912846990d54b4b536a8d
-      internalID: -23236432
+      spriteID: b7a7877c0c1abbb419599a5ae2e67139
+      internalID: 964990420
       vertices: []
       indices: 
       edges: []
@@ -198,10 +303,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Policia_Idle_Desmembrado_1_3: -23236432
-      Policia_Idle_Desmembrado_1_1: -2030794453
-      Policia_Idle_Desmembrado_1_2: -391268866
-      Policia_Idle_Desmembrado_1_0: -2139516024
+      Policia_Pana_Walk_Desmembrado_ 1_1: 1382182811
+      Policia_Pana_Walk_Desmembrado_ 1_6: 206957722
+      Policia_Pana_Walk_Desmembrado_ 1_4: 256191779
+      Policia_Pana_Walk_Desmembrado_ 1_0: 1300028569
+      Policia_Pana_Walk_Desmembrado_ 1_8: 964990420
+      Policia_Pana_Walk_Desmembrado_ 1_3: -1934221822
+      Policia_Pana_Walk_Desmembrado_ 1_7: -129781439
+      Policia_Pana_Walk_Desmembrado_ 1_5: -713573287
+      Policia_Pana_Walk_Desmembrado_ 1_2: 19648794
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

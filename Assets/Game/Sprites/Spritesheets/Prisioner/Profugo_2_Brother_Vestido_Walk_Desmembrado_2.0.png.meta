@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c3c38e96f49ecdd44bf63f7ec7c96653
+guid: b6c81119ca2027f49a0244d36af8975f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +104,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_0
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abee7fce75d024444b22966f2e968836
+      internalID: -1625066061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a0edbca4b35bd4595991b1975e54c1
+      internalID: 908101697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f10c76e467591049900db9bb49573e9
+      internalID: -508239206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_3
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7db2241b8db44cd4aa4af69a11146212
-      internalID: -2139516024
+      spriteID: 0d88edd4e6274104493745b3239d4677
+      internalID: -640572424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_1
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_4
       rect:
         serializedVersion: 2
         x: 32
@@ -139,14 +202,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77e992dd8b4e319428e54724a3399841
-      internalID: -2030794453
+      spriteID: 8e4661e886c37434c93fb4f961a9bfcd
+      internalID: -1200088678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_2
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b5a3823f4f5074eb673facfaed1c4b
+      internalID: 940326229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_6
       rect:
         serializedVersion: 2
         x: 0
@@ -160,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cbc27b9c30838d4f83cb64d063ab851
-      internalID: -391268866
+      spriteID: af45b626f4c59634381ba7601bedbe5d
+      internalID: -2034012509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Policia_Idle_Desmembrado_1_3
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_7
       rect:
         serializedVersion: 2
         x: 32
@@ -181,8 +265,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d2b088ab5c912846990d54b4b536a8d
-      internalID: -23236432
+      spriteID: 9595e0368420ee54899a595e35ac97af
+      internalID: -976215826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6d847bd06ad0f45b53fb32461b6ac8
+      internalID: -1702855521
       vertices: []
       indices: 
       edges: []
@@ -198,10 +303,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Policia_Idle_Desmembrado_1_3: -23236432
-      Policia_Idle_Desmembrado_1_1: -2030794453
-      Policia_Idle_Desmembrado_1_2: -391268866
-      Policia_Idle_Desmembrado_1_0: -2139516024
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_1: 908101697
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_7: -976215826
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_2: -508239206
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_8: -1702855521
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_4: -1200088678
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_5: 940326229
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_3: -640572424
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_6: -2034012509
+      Profugo_2_Brother_Vestido_Walk_Desmembrado_2.0_0: -1625066061
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
