@@ -20,9 +20,12 @@ public class WeaponParent : MonoBehaviour
 
         Vector3 rotation = mousePos - transform.position;
 
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        rotation.z = 0;
+        transform.right = rotation;
 
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        //transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
         if (mousePos.x > transform.position.x && facingLeft )
         {
