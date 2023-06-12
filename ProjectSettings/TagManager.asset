@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - GunPosition
   - Ally
+  - Win
   layers:
   - Default
   - TransparentFX

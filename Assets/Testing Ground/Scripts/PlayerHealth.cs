@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public float invincibilityTime = 1f;
     private bool isInvincible = false;
+    public event EventHandler Died;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                Died?.Invoke(this, EventArgs.Empty);
                 Die();
             }
             else
