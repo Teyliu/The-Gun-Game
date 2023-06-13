@@ -26,11 +26,11 @@ public class EnemyScript : MonoBehaviour
             Vector2 direction = (Vector2)PlayerScript.Instance.transform.position - (Vector2)transform.position;
             transform.Translate(movementSpeed * Time.deltaTime * direction.normalized);
 
-            if (direction.x > 0)
+            if (direction.x < 0)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
-            else if (direction.x < 0)
+            else if (direction.x > 0)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
             }

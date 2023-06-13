@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6445382739864347891}
   - component: {fileID: 4689824482936616369}
   - component: {fileID: 6991733105342415096}
+  - component: {fileID: 7629247593059167992}
   m_Layer: 3
   m_Name: Bullet_Player_0
   m_TagString: Bullet
@@ -160,3 +161,21 @@ MonoBehaviour:
   damage: 1
   lifetime: 2
   spawnSounds: []
+  colliders:
+  - {fileID: 7629247593059167992}
+--- !u!58 &7629247593059167992
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364305035067614150}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16

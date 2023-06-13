@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 4076659977784480307}
   - component: {fileID: 6878654846323429236}
   - component: {fileID: 1195040917335149729}
+  - component: {fileID: 1263909386524940386}
+  - component: {fileID: 1708498192385648242}
   m_Layer: 3
   m_Name: PJ PRINCIPAL
   m_TagString: Player
@@ -234,6 +236,34 @@ MonoBehaviour:
   trailPointPrefab: {fileID: 0}
   maxTrailPoints: 20
   alliesCount: 0
+--- !u!114 &1263909386524940386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736889550947865444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c058c8ce657b99408312a1a5d87aa12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinnerText: {fileID: 0}
+--- !u!114 &1708498192385648242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736889550947865444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea5ba9ae6669ea4fbb58af0441199d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  invincibilityTime: 1
 --- !u!1 &1360263867893696396
 GameObject:
   m_ObjectHideFlags: 0
