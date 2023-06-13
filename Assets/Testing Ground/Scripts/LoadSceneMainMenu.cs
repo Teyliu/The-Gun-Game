@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadScene : MonoBehaviour
+public class LoadSceneMainMenu : MonoBehaviour
 {
-    public void Tutorial(string nombre)
+    public void Menu(string nombre)
     {
         SceneManager.LoadScene(nombre);
     }
