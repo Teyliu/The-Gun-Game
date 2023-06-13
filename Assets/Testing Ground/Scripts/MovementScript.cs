@@ -29,7 +29,6 @@ public class MovementScript : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCam;
     private bool facingRight = true;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +38,7 @@ public class MovementScript : MonoBehaviour
     }
     void Update()
     {
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -86,6 +86,7 @@ public class MovementScript : MonoBehaviour
             {
                 Vector2 dashDirection = movement.normalized != Vector2.zero ? movement.normalized : rb.velocity.normalized;
                 rb.velocity = dashSpeed * dashDirection;
+                
             }
         }
         else

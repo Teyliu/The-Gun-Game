@@ -37,7 +37,7 @@ public class EnemyScript : MonoBehaviour
             if (distance <= detectionRange)
             {
                 // Move towards the player smoothly
-                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, movementSpeed * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, playerTransform.position, movementSpeed * Time.deltaTime);
             }
 
             // Flip the sprite based on the movement direction
