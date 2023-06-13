@@ -53310,6 +53310,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4076659977784480307, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
 --- !u!1 &1703174757
@@ -53426,7 +53430,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.7
+  orthographic size: 1.72
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -53450,7 +53454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709094589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.247061, y: 9.688492, z: -10}
+  m_LocalPosition: {x: -9.495517, y: 8.777794, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53484,8 +53488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 100
-  m_RefResolutionX: 200
-  m_RefResolutionY: 200
+  m_RefResolutionX: 300
+  m_RefResolutionY: 300
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0

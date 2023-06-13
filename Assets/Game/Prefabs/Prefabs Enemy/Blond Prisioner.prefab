@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8522471172040646814}
   - component: {fileID: 293275603533181529}
   - component: {fileID: 5176621154682495221}
-  - component: {fileID: 1264020992181243529}
   - component: {fileID: 7642551777486159890}
   - component: {fileID: 1941636595169321488}
+  - component: {fileID: 183998441050629981}
   m_Layer: 3
   m_Name: Blond Prisioner
   m_TagString: Enemy
@@ -115,9 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2b80e0046c7bf42afba3fff001c2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2.5
+  movementSpeed: 2
   health: 3
   contactDamage: 2
+  detectionRange: 3
   deathSounds:
   - {fileID: 8300000, guid: 6a0730032f65df0449ab256ed780168b, type: 3}
   drops:
@@ -144,22 +145,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &1264020992181243529
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3419531390685262627}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.01976195, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!95 &7642551777486159890
 Animator:
   serializedVersion: 4
@@ -193,6 +178,22 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 0.25}
+  m_Offset: {x: -0.0034036636, y: 0}
+  m_Size: {x: 0.1397208, y: 0.25}
+  m_Direction: 0
+--- !u!70 &183998441050629981
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419531390685262627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0048709363, y: 0.0012915134}
+  m_Size: {x: 0.23843685, y: 0.3484149}
   m_Direction: 0

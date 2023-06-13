@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 977568703158720541}
   - component: {fileID: 9206782009879284442}
   - component: {fileID: 4324562222265309302}
-  - component: {fileID: 7664659874322871818}
   - component: {fileID: 4783640004349731743}
   - component: {fileID: 1537885535223787593}
   - component: {fileID: 8784855771701620182}
+  - component: {fileID: 801611217096733277}
   m_Layer: 3
   m_Name: Policie
   m_TagString: Enemy
@@ -119,6 +119,7 @@ MonoBehaviour:
   movementSpeed: 1
   health: 1
   contactDamage: 1
+  detectionRange: 5
   deathSounds:
   - {fileID: 8300000, guid: 6a0730032f65df0449ab256ed780168b, type: 3}
   drops:
@@ -145,22 +146,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &7664659874322871818
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6098012710660361120}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.01976195, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!95 &4783640004349731743
 Animator:
   serializedVersion: 4
@@ -213,6 +198,22 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 0.25}
+  m_Offset: {x: 0.005568266, y: 0}
+  m_Size: {x: 0.16709518, y: 0.25}
+  m_Direction: 0
+--- !u!70 &801611217096733277
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098012710660361120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0048709363, y: 0.0012915134}
+  m_Size: {x: 0.23843685, y: 0.3484149}
   m_Direction: 0

@@ -4,28 +4,43 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float movementSpeed = 0.0025f;
+    public float movementSpeed = 2f;
     public int health = 3;
     public int contactDamage = 1;
+    public float detectionRange = 5f;
     public AudioClip[] deathSounds;
-    public Drop[] drops; 
+    public Drop[] drops;
 
     private bool isDead = false;
-
     private Animator animator;
+    private Transform playerTransform;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        playerTransform = PlayerScript.Instance.transform;
     }
+    private void OnDrawGizmosSelected()
+{
+    Gizmos.color = Color.yellow;
+    Gizmos.DrawWireSphere(transform.position, detectionRange);
+}
 
     void Update()
     {
         if (!isDead)
         {
-            Vector2 direction = (Vector2)PlayerScript.Instance.transform.position - (Vector2)transform.position;
-            transform.Translate(movementSpeed * Time.deltaTime * direction.normalized);
+            Vector2 direction = playerTransform.position - transform.position;
+            float distance = direction.magnitude;
 
+            // Check if the player is within the detection range
+            if (distance <= detectionRange)
+            {
+                // Move towards the player smoothly
+                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, movementSpeed * Time.deltaTime);
+            }
+
+            // Flip the sprite based on the movement direction
             if (direction.x < 0)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
@@ -35,7 +50,7 @@ public class EnemyScript : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipX = false;
             }
 
-            animator.SetFloat("Movement", Mathf.Abs(direction.magnitude));
+            animator.SetFloat("Movement", distance);
         }
     }
 
@@ -52,22 +67,25 @@ public class EnemyScript : MonoBehaviour
                 }
             }
 
-            BulletDamage bullet = other.GetComponent<BulletDamage>();
-            if (bullet != null)
+            if (!other.isTrigger)
             {
-                health -= bullet.damage;
-                Destroy(other.gameObject);
-
-                if (health <= 0)
+                BulletDamage bulletDamage = other.GetComponent<BulletDamage>();
+                if (bulletDamage != null)
                 {
-                    isDead = true;
-                    StartCoroutine(Die());
-                    animator.SetTrigger("Die");
+                    health -= bulletDamage.damage;
+                    Destroy(bulletDamage.gameObject);
+
+                    if (health <= 0)
+                    {
+                        isDead = true;
+                        StartCoroutine(Die());
+                        animator.SetTrigger("Die");
+                    }
                 }
             }
-
         }
     }
+
 
     IEnumerator Die()
     {

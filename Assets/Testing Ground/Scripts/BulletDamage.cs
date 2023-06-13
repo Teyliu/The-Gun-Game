@@ -5,6 +5,7 @@ public class BulletDamage : MonoBehaviour
     public int damage = 1;
     public float lifetime = 2f;
     public AudioClip[] spawnSounds;
+    public string[] ignoredTags;
 
     public Collider2D[] colliders;
 
@@ -23,16 +24,23 @@ public class BulletDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        foreach (Collider2D collider in colliders)
         {
-            foreach (Collider2D collider in colliders)
+            // Ignore collision with colliders that have one of the ignored tags
+            foreach (string ignoredTag in ignoredTags)
             {
-                Physics2D.IgnoreCollision(collider, collision.collider);
+                if (collision.gameObject.CompareTag(ignoredTag))
+                {
+                    Physics2D.IgnoreCollision(collider, collision.collider);
+                    break;
+                }
             }
         }
-        else
+
+        if (!collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
     }
 }
+
