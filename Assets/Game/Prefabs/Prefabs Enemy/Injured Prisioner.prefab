@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1515417974101430052}
   - component: {fileID: 4539018177053238068}
   - component: {fileID: 2532916175956102370}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: Injured Prisioner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -178,8 +178,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0012373924, y: 0}
-  m_Size: {x: 0.14605951, y: 0.25}
+  m_Offset: {x: -0.0023193657, y: 0.00054216385}
+  m_Size: {x: 0.059481204, y: 0.073256016}
   m_Direction: 0
 --- !u!70 &2532916175956102370
 CapsuleCollider2D:

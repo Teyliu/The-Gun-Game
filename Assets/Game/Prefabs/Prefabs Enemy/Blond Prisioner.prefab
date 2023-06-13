@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7642551777486159890}
   - component: {fileID: 1941636595169321488}
   - component: {fileID: 183998441050629981}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: Blond Prisioner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -178,8 +178,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0034036636, y: 0}
-  m_Size: {x: 0.1397208, y: 0.25}
+  m_Offset: {x: -0.0023193657, y: 0.00054216385}
+  m_Size: {x: 0.059481204, y: 0.073256016}
   m_Direction: 0
 --- !u!70 &183998441050629981
 CapsuleCollider2D:

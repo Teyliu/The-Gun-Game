@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4689824482936616369}
   - component: {fileID: 6991733105342415096}
   - component: {fileID: 8954052834757337768}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Bullet_Player_0
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   spawnSounds: []
   ignoredTags:
   - Player
+  - Enemy
   colliders: []
 --- !u!58 &8954052834757337768
 CircleCollider2D:
