@@ -14047,10 +14047,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Christian Prisioner (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2614645950925028920, guid: 49abce135ba4fab4fa11be3c0d884653, type: 3}
-      propertyPath: movementSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4570613610231842912, guid: 49abce135ba4fab4fa11be3c0d884653, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -41799,10 +41795,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 293275603533181529, guid: 3c767a90f89c4514faeb1bff34a2f34f, type: 3}
-      propertyPath: movementSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2249247730775999489, guid: 3c767a90f89c4514faeb1bff34a2f34f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -53315,10 +53307,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PJ PRINCIPAL
       objectReference: {fileID: 0}
-    - target: {fileID: 736889550947865444, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 1263909386524940386, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
       propertyPath: WinnerText
       value: 
@@ -53366,10 +53354,6 @@ PrefabInstance:
     - target: {fileID: 3123782836711912885, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3745083451055587057, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
-      propertyPath: dashSpeed
-      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
