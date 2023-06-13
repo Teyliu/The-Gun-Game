@@ -39,7 +39,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (!isDead)
         {
@@ -62,6 +62,7 @@ public class EnemyScript : MonoBehaviour
                 {
                     isDead = true;
                     StartCoroutine(Die());
+                    animator.SetTrigger("Die");
                 }
             }
 
@@ -84,7 +85,7 @@ public class EnemyScript : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(0.0f);
+        yield return new WaitForSeconds(0.6f);
 
         Destroy(gameObject);
     }

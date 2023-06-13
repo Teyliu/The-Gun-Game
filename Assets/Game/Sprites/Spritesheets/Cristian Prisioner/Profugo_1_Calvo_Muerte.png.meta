@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -67,7 +67,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
@@ -409,7 +409,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Profugo_1_Calvo_Muerte_13: -1177065770
-      Profugo_1_Calvo_Muerte_11: 705265675
+      Profugo_1_Calvo_Muerte_6: -473090427
       Profugo_1_Calvo_Muerte_5: 734870754
       Profugo_1_Calvo_Muerte_10: 1252715111
       Profugo_1_Calvo_Muerte_0: 471364654
@@ -421,7 +421,7 @@ TextureImporter:
       Profugo_1_Calvo_Muerte_3: 222746345
       Profugo_1_Calvo_Muerte_2: -152843848
       Profugo_1_Calvo_Muerte_8: -1375590722
-      Profugo_1_Calvo_Muerte_6: -473090427
+      Profugo_1_Calvo_Muerte_11: 705265675
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
