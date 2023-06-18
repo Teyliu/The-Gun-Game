@@ -1,48 +1,56 @@
-Shader "Custom/DashEffectShader"
+Shader "Custom/CoolNeonLinesShader"
 {
     Properties
     {
-        _MainTex("Texture", 2D) = "white" {}
+        _BackgroundTex("Background Texture", 2D) = "white" {}
+        _LineTexUp("Line Texture Up", 2D) = "white" {}
+        _LineTexDown("Line Texture Down", 2D) = "white" {}
         _Color("Color", Color) = (1, 1, 1, 1)
-        _Speed("Speed", Range(1, 10)) = 5
-        _Intensity("Intensity", Range(0, 1)) = 0.5
-        _HueSpeed("Hue Speed", Range(0, 10)) = 1
-        _PingPongHue("Ping Pong Hue", Range(0, 1)) = 0
-        _Shininess("Shininess", Range(0, 1)) = 0.5
+        _Intensity("Intensity", Range(0, 2)) = 1.0
+        _LineWidth("Line Width", Range(0, 1)) = 0.1
+        _Brightness("Brightness", Range(0, 10)) = 2.0
+        _Smoothness("Smoothness", Range(0, 1)) = 0.5
+        _Speed("Movement Speed", Range(-10, 10)) = 1.0
+        _Transparency("Transparency", Range(0, 1)) = 0.5
+        _Voids("Void Intensity", Range(0, 1)) = 0.0
     }
 
         SubShader
         {
             Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
+            LOD 100
 
-            LOD 200
+            Cull Off
+            ZWrite Off
+            ZTest Always
+            Blend SrcAlpha OneMinusSrcAlpha
 
             Pass
             {
-                Blend One OneMinusSrcAlpha
-                ZWrite Off
-
                 CGPROGRAM
                 #pragma vertex vert
                 #pragma fragment frag
+                #pragma target 3.0
                 #pragma multi_compile_instancing
 
                 #include "UnityCG.cginc"
 
-                sampler2D _MainTex;
+                sampler2D _BackgroundTex;
+                sampler2D _LineTexUp;
+                sampler2D _LineTexDown;
                 float4 _Color;
-                float _Speed;
                 float _Intensity;
-                float _HueSpeed;
-                float _PingPongHue;
-                float _Shininess;
+                float _LineWidth;
+                float _Brightness;
+                float _Smoothness;
+                float _Speed;
+                float _Transparency;
+                float _Voids;
 
                 struct appdata
                 {
                     float4 vertex : POSITION;
-                    float3 normal : NORMAL;
                     float2 texcoord : TEXCOORD0;
-                    UNITY_VERTEX_INPUT_INSTANCE_ID
                 };
 
                 struct v2f
@@ -55,70 +63,52 @@ Shader "Custom/DashEffectShader"
                 v2f vert(appdata v)
                 {
                     v2f o;
-                    UNITY_SETUP_INSTANCE_ID(v);
-                    o.vertex = UnityObjectToClipPos(v.vertex);
                     o.texcoord = v.texcoord;
-                    UNITY_TRANSFER_INSTANCE_ID(o, v);
+                    o.vertex = UnityObjectToClipPos(v.vertex);
                     return o;
                 }
 
-                fixed4 frag(v2f IN) : SV_Target
+                fixed4 frag(v2f i) : SV_Target
                 {
-                    float2 offset = IN.texcoord * _Speed + _Time.y * _Speed;
-                    float2 distortedUV = IN.texcoord + sin(offset) * _Intensity;
+                    // Sample the background texture
+                    fixed4 backgroundColor = tex2D(_BackgroundTex, i.texcoord);
 
-                    fixed4 texColor = tex2D(_MainTex, distortedUV);
+                // Sample the line textures
+                float2 shiftedTexCoordUp = i.texcoord + float2(0, _Time.y * _Speed);
+                float2 shiftedTexCoordDown = i.texcoord + float2(0, -_Time.y * _Speed);
+                fixed4 lineColorUp = tex2D(_LineTexUp, shiftedTexCoordUp);
+                fixed4 lineColorDown = tex2D(_LineTexDown, shiftedTexCoordDown);
 
-                    float hue = _Time.y * _HueSpeed;
-                    if (_PingPongHue > 0)
-                    {
-                        float pingPong = abs(fmod(hue, 2.0) - 1.0);
-                        hue = lerp(0, 1, pingPong);
-                    }
+                // Calculate the distance from the center of the line
+                float distance = abs(i.texcoord.y - 0.5);
 
-                    // Apply hue shift
-                    float3 rgb = texColor.rgb;
-                    float3 hsv = 0;
-                    float K = 0;
-                    if (rgb.g < rgb.b)
-                    {
-                        hsv.r = rgb.b;
-                        hsv.g = rgb.g;
-                        K = -1;
-                    }
-                    else
-                    {
-                        hsv.r = rgb.g;
-                        hsv.g = rgb.b;
-                        K = 0;
-                    }
-                    if (hsv.r < rgb.r)
-                    {
-                        hsv.b = rgb.r;
-                        K -= 2 / 6;
-                    }
-                    else
-                    {
-                        hsv.b = hsv.r;
-                        hsv.r = rgb.r;
-                        K += 4 / 6;
-                    }
+                // Apply line width
+                float lineFactor = smoothstep(0.5 - _LineWidth * 0.5, 0.5 + _LineWidth * 0.5, distance);
 
-                    hsv.x = abs(frac((hue + K) * 6) - _PingPongHue);
-                    hsv.yz = texColor.ba;
-                    rgb = hsv.z * lerp(hsv.y, saturate(hsv.y + _PingPongHue), hsv.x);
+                // Apply neon effect and additional intensity
+                fixed4 neonColor = fixed4(_Color.rgb * _Intensity * _Brightness, 1.0);
 
-                    float3 finalColor = rgb * _Color.rgb;
+                // Apply smoothness to the line colors' alpha
+                lineColorUp.a = pow(lineColorUp.a, _Smoothness);
+                lineColorDown.a = pow(lineColorDown.a, _Smoothness);
 
-                    fixed4 finalColorWithAlpha = fixed4(finalColor.rgb, texColor.a);
+                // Combine line colors with neon effect and apply transparency
+                fixed4 finalColorUp = neonColor * lineColorUp * lineFactor * (1 - _Transparency);
+                fixed4 finalColorDown = neonColor * lineColorDown * lineFactor * (1 - _Transparency);
 
-                    finalColorWithAlpha.a *= texColor.a;
+                // Combine final colors with the background
+                fixed4 finalColor = lerp(backgroundColor, finalColorUp, finalColorUp.a);
+                finalColor = lerp(finalColor, finalColorDown, finalColorDown.a);
 
-                    finalColorWithAlpha.a = pow(finalColorWithAlpha.a, _Shininess);
+                // Apply voids (make blacks transparent)
+                float voidFactor = smoothstep(0, _Voids, finalColor.r + finalColor.g + finalColor.b);
+                finalColor.a *= voidFactor;
 
-                    return finalColorWithAlpha;
-                }
-                ENDCG
+                return finalColor;
             }
+            ENDCG
+        }
         }
 }
+
+

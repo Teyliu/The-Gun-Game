@@ -53592,6 +53592,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9930135ee4463604f927f824b17e46ee, type: 2}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 0.07508087
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.02739726
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.17997509
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453827549146964362, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df6450613cc52ac4688d1d8c5aba4bfb, type: 3}
 --- !u!1 &1703174757
@@ -53732,7 +53776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709094589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.691574, y: 9.740694, z: -10}
+  m_LocalPosition: {x: -9.61207, y: 9.740694, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

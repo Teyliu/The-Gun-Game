@@ -128,10 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  dashSpeed: 5
-  dashTime: 0.5
+  dashSpeed: 15
+  dashTime: 0.05
   dashCooldown: 2
   dashInvulnerabilityTime: 0.3
+  trailDuration: 0.5
   dashKey: 32
 --- !u!114 &5168968430419450695
 MonoBehaviour:
@@ -270,7 +271,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9930135ee4463604f927f824b17e46ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -290,8 +291,8 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
-  m_Time: 0.5
+  m_SortingOrder: 11
+  m_Time: 0.25
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -352,7 +353,7 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 2
-    shadowBias: 0.5
+    shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
   m_Autodestruct: 0
