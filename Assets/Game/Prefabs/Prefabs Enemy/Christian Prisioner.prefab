@@ -118,7 +118,7 @@ MonoBehaviour:
   movementSpeed: 1
   health: 3
   contactDamage: 2
-  detectionRange: 2
+  detectionRange: 0.8
   deathSounds:
   - {fileID: 8300000, guid: 6a0730032f65df0449ab256ed780168b, type: 3}
   drops:
