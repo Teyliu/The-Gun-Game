@@ -46,3 +46,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Shadowy
+    uniqueID: 1571012029
+    locked: 0

@@ -66,12 +66,12 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Glassiness: 0.352
+    - _Glassiness: 0.341
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HueSpeed: 10
-    - _Intensity: 0
+    - _Intensity: 0.235
     - _LoopOffset: 1
     - _Metallic: 0
     - _Mode: 0
@@ -79,10 +79,10 @@ Material:
     - _Parallax: 0.02
     - _PingPongHue: 0.597
     - _RotationSpeed: 5.3
-    - _Shininess: 1
+    - _Shininess: 0.854
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 3.33
+    - _Speed: 2.76
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
