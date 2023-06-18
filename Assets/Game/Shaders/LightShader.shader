@@ -7,12 +7,10 @@ Shader "Custom/LightEdgesShader"
         _EdgeSmoothness("Edge Smoothness", Range(0, 1)) = 0.5
         _EdgeTransparency("Edge Transparency", Range(0, 1)) = 0.1
         _LightColor("Light Color", Color) = (1, 1, 1, 1)
-        _LightIntensity("Light Intensity", Range(0, 1)) = 0.5
+        _LightIntensity("Light Intensity", Range(0, 5)) = 1.0 // Increased intensity range
         _SpecularColor("Specular Color", Color) = (1, 1, 1, 1)
-        _SpecularIntensity("Specular Intensity", Range(0, 1)) = 0.5
+        _SpecularIntensity("Specular Intensity", Range(0, 5)) = 1.0 // Increased intensity range
         _Shininess("Shininess", Range(0, 1)) = 0.5
-        _CutThroughLayers("Cut Through Layers", Float) = 0
-        _NegateOtherLayer("Negate Other Layer", Range(0, 1)) = 0
     }
 
         SubShader
@@ -44,8 +42,6 @@ Shader "Custom/LightEdgesShader"
                 float4 _SpecularColor;
                 float _SpecularIntensity;
                 float _Shininess;
-                float _CutThroughLayers;
-                float _NegateOtherLayer;
 
                 struct appdata
                 {
@@ -80,42 +76,22 @@ Shader "Custom/LightEdgesShader"
                 // Calculate the edge factor based on the dot product of the normal and the view direction
                 float edgeFactor = smoothstep(_EdgeSmoothness - 0.02, _EdgeSmoothness + 0.02, dot(normal, normalize(i.vertex.xyz)));
 
+                // Calculate the clipping factor based on the object's alpha channel
+                float clipping = texColor.a;
+
                 // Apply edge smoothness and transparency
                 fixed4 finalColor = texColor * (1 - edgeFactor * _EdgeTransparency);
 
-                // Apply light and specular reflections
+                // Apply light and specular reflections with increased intensity
                 float4 lighting = _LightColor * _LightIntensity * max(0, dot(normal, _WorldSpaceLightPos0.xyz));
-                float4 specular = _SpecularColor * _SpecularIntensity * pow(max(0, dot(reflect(-_WorldSpaceLightPos0.xyz, normal), -normalize(i.worldPos.xyz - _WorldSpaceCameraPos.xyz))), _Shininess);
-                finalColor.rgb = finalColor.rgb * lighting.rgb + specular.rgb;
+                float4 specular = _SpecularColor * _SpecularIntensity * pow(max(0, dot(reflect(-_WorldSpaceLightPos0.xyz, normal), normalize(i.worldPos.xyz))), _Shininess);
+                finalColor.rgb = finalColor.rgb * (lighting.rgb + specular.rgb);
 
                 // Apply overall color
                 finalColor.rgb *= _Color.rgb;
 
-                // Cut through other layers based on the CutThroughLayers value
-                if (_CutThroughLayers > 0)
-                {
-                    float alpha = 1.0;
-                    float depth = LinearEyeDepth(tex2D(_CameraDepthTexture, i.texcoord).r);
-                    float currentDepth = i.worldPos.z / i.worldPos.w;
-                    float depthDifference = depth - currentDepth;
-
-                    if (depthDifference > 0)
-                    {
-                        float layersToCut = _CutThroughLayers * _CutThroughLayers;
-                        float alphaMultiplier = 1.0 / layersToCut;
-                        alpha -= depthDifference * alphaMultiplier;
-                        alpha = clamp(alpha, 0, 1);
-                    }
-
-                    finalColor.a *= alpha;
-                }
-
-                // Negate the color and content of the other layer
-                if (_NegateOtherLayer > 0)
-                {
-                    fixed4 otherColor = tex2D(_CameraOpaqueTexture, i.texcoord);
-                    finalColor.rgb *= (1 - otherColor.rgb);
-                }
+                // Apply clipping factor
+                finalColor.a *= clipping;
 
                 return finalColor;
             }
@@ -123,4 +99,3 @@ Shader "Custom/LightEdgesShader"
         }
         }
 }
-

@@ -77,7 +77,7 @@ public class TutorialManager : MonoBehaviour
 
         ShowCurrentStep();
         ApplyScriptChanges(tutorialStepData[currentStepIndex].scriptsToDisable, tutorialStepData[currentStepIndex].scriptsToEnable);
-        Time.timeScale = 0f; // Pause game time
+        Time.timeScale = 0.5f; // Pause game time
     }
 
     private void ShowCurrentStep()
