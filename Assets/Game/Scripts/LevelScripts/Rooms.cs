@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
-    public class Rooms : MonoBehaviour
-    {
+public class Rooms : MonoBehaviour
+{
     public GameObject objetoBloqueo1;
     public GameObject objetoBloqueo2;
     public Collider2D areaEnemigos; // Collider2D del área de los enemigos
+    public GameObject goArrow;
+    public float goArrowDuration = 3f; 
+
 
     private bool bloqueadoresActivados;
     [SerializeField] private List<GameObject> enemigosEnArea = new List<GameObject>();
@@ -23,7 +27,6 @@ using UnityEngine;
         {
             if (!bloqueadoresActivados)
             {
-                // Activar los bloqueadores al entrar al área
                 ActivarBloqueadores();
             }
         }
@@ -48,14 +51,14 @@ using UnityEngine;
 
     private void Update()
     {
-        // Limpiar la lista de enemigos muertos
+
         enemigosEnArea.RemoveAll(enemigo => enemigo == null || !enemigo.activeSelf);
 
-        // Verificar si no hay más enemigos vivos en el área
+
         if (enemigosEnArea.Count <= 0 && bloqueadoresActivados)
         {
-            // Desactivar los bloqueadores si no hay más enemigos en el área
             DesactivarBloqueadores();
+            GoArrow();
         }
     }
 
@@ -72,5 +75,19 @@ using UnityEngine;
         objetoBloqueo2.SetActive(false);
         bloqueadoresActivados = false;
     }
-}
 
+    private void GoArrow()
+    {
+        if (goArrow != null)
+        {
+            goArrow.SetActive(true);
+            StartCoroutine(DeactivateGoArrowAfterDelay(goArrowDuration));
+        }
+    }
+
+    private IEnumerator DeactivateGoArrowAfterDelay(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        goArrow.SetActive(false);
+    }
+}
