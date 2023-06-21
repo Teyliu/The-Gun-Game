@@ -20,6 +20,6 @@ public class PlayerScript : MonoBehaviour
     }
     public void GetShot()
     {
-        IsShot = true;
+        IsShot = !IsShot;
     }
 }
