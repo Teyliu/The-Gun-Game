@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInvincible)
         {
+            CamaraShakin.Instance.CamaraShake(3, 3, 0.5f);
             currentHealth -= damage;
 
             if (currentHealth <= 0)
