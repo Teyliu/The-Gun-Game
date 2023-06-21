@@ -5,25 +5,36 @@ using Cinemachine;
 
 public class CamaraChange : MonoBehaviour
 {
-    public CinemachineVirtualCamera targetCamera;
-    private CinemachineVirtualCamera originalCamera;
+    public string targetTag = "Player";
+    public CinemachineVirtualCamera originalCamera;
+    public CinemachineVirtualCamera newCamera;
 
-    private void OnTriggerEnter(Collider other)
+    private bool isInNewCameraZone = false;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag(targetTag))
         {
-            originalCamera = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera as CinemachineVirtualCamera;
-            targetCamera.gameObject.SetActive(true);
-            originalCamera.gameObject.SetActive(false);
+            Debug.Log("Cambio a Camara 2");
+            isInNewCameraZone = true;
+            SwitchCamera(newCamera);
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag(targetTag))
         {
-            targetCamera.gameObject.SetActive(false);
-            originalCamera.gameObject.SetActive(true);
+            Debug.Log("Cambio a Camara 1");
+            isInNewCameraZone = false;
+            SwitchCamera(originalCamera);
         }
+    }
+
+    private void SwitchCamera(CinemachineVirtualCamera targetCamera)
+    {
+        originalCamera.gameObject.SetActive(false);
+        newCamera.gameObject.SetActive(false);
+        targetCamera.gameObject.SetActive(true);
     }
 }
