@@ -1,31 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Collections;
+using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
     public float invincibilityTime = 1f;
-    private bool isInvincible = false;
-    public event EventHandler Died;
+    public bool isInvincible = false;
+    public bool isPlayerShot = false;
+    private PlayerScript playerScript;
+    public EventHandler Died;
+    public ParticleSystemController particleSystemController; // Reference to the ParticleSystemController script
 
     private void Start()
     {
         currentHealth = maxHealth;
+        playerScript = PlayerScript.Instance;
     }
 
     public void TakeDamage(int damage)
     {
         if (!isInvincible)
         {
-            CamaraShakin.Instance.CamaraShake(3, 3, 0.5f);
             currentHealth -= damage;
 
             if (currentHealth <= 0)
             {
-                Died?.Invoke(this, EventArgs.Empty);
                 Die();
             }
             else
@@ -43,9 +44,11 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Invincibility()
     {
+        playerScript.GetShot();
         isInvincible = true;
         yield return new WaitForSeconds(invincibilityTime);
         isInvincible = false;
+        playerScript.GetShot();
     }
 
     void Die()

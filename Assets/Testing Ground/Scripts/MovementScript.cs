@@ -54,7 +54,7 @@ public class MovementScript : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        Vector2 movement = new Vector2(horizontalInput, verticalInput);
+        Vector2 movement = new(horizontalInput, verticalInput);
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 

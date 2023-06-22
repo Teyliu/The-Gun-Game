@@ -18,13 +18,8 @@ public class PlayerScript : MonoBehaviour
             return;
         }
     }
-
-    private void Update()
-    {
-    }
-
     public void GetShot()
     {
-        IsShot = true;
+        IsShot = !IsShot;
     }
 }

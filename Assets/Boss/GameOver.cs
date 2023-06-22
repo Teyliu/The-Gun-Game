@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
     {
         PGameOver.SetActive(true);
     }
-    public void restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
