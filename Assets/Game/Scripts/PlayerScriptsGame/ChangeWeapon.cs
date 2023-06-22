@@ -12,7 +12,7 @@ public class ChangeWeapon : MonoBehaviour
     public RuntimeAnimatorController TwoHands;
     public RuntimeAnimatorController OneHands;
     public RuntimeAnimatorController ZeroHands;
-    public bool condicionCumplida;
+    //public bool condicionCumplida;
 
     private void Start()
     {
