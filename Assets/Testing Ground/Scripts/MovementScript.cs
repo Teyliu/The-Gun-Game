@@ -31,7 +31,6 @@ public class MovementScript : MonoBehaviour
     private Camera mainCam;
     private bool facingRight = true;
 
-    // Trail Renderer
     private TrailRenderer trailRenderer;
 
     void Start()
@@ -41,7 +40,6 @@ public class MovementScript : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         transform.localScale = new Vector3(-1f, 1f, 1f);
 
-        // Get the TrailRenderer component
         trailRenderer = GetComponent<TrailRenderer>();
         if (trailRenderer != null)
         {

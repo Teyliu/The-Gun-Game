@@ -8,8 +8,7 @@ public class CamaraChange : MonoBehaviour
     public string targetTag = "Player";
     public CinemachineVirtualCamera originalCamera;
     public CinemachineVirtualCamera newCamera;
-
-    private bool isInNewCameraZone = false;
+    public bool isInNewCameraZone = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

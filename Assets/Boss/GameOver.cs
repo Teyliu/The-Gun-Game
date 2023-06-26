@@ -17,6 +17,7 @@ public class GameOver : MonoBehaviour
     private void AddMenu(object sender, EventArgs e)
     {
         PGameOver.SetActive(true);
+
     }
     public void Restart()
     {

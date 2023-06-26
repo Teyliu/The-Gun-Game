@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public bool isInvincible = false;
     public bool isPlayerShot = false;
     private PlayerScript playerScript;
-    public EventHandler Died;
+    public event EventHandler Died;
     public ParticleSystemController particleSystemController; // Reference to the ParticleSystemController script
 
     private void Start()
@@ -32,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 StartCoroutine(Invincibility());
+                playerScript.GetShot();
             }
         }
     }
@@ -44,7 +45,6 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Invincibility()
     {
-        playerScript.GetShot();
         isInvincible = true;
         yield return new WaitForSeconds(invincibilityTime);
         isInvincible = false;

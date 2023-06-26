@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1263909386524940386}
   - component: {fileID: 7453827549146964362}
   - component: {fileID: 7022864901250352424}
+  - component: {fileID: 8350353852801321904}
   m_Layer: 3
   m_Name: PJ PRINCIPAL
   m_TagString: Player
@@ -191,7 +192,6 @@ MonoBehaviour:
   TwoHands: {fileID: 9100000, guid: 7f5eaa6c0f1f4c14eb701725df929e2c, type: 2}
   OneHands: {fileID: 9100000, guid: 4c775b181ed195c4a85c47662d82248d, type: 2}
   ZeroHands: {fileID: 9100000, guid: 2cb49be38cd42ad45aa1518b564ca768, type: 2}
-  condicionCumplida: 0
 --- !u!70 &4076659977784480307
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,8 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea5ba9ae6669ea4fbb58af0441199d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 10
+  currentHealth: 10
   invincibilityTime: 1
   isInvincible: 0
   isPlayerShot: 0
@@ -372,6 +372,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 0}
+--- !u!70 &8350353852801321904
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736889550947865444}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0031747818, y: 0.0010585785}
+  m_Size: {x: 0.14857101, y: 0.19936562}
+  m_Direction: 0
 --- !u!1 &1360263867893696396
 GameObject:
   m_ObjectHideFlags: 0
