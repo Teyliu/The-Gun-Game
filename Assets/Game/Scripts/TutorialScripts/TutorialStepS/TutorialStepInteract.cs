@@ -4,7 +4,7 @@ using TMPro;
 public class TutorialStepInteract : TutorialStepBase
 {
     public string tutorialMessage;
-    public Collider interactionCollider;
+    public Collider2D interactionCollider;
 
     private TextMeshProUGUI tutorialText;
     private bool isInteractionComplete = false;

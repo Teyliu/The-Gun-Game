@@ -2209,7 +2209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21887c69d757490449a2d9dcabb114ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Si te disparan te mueres mano xd
+  tutorialMessage: You can get shot
 --- !u!1 &266137824
 GameObject:
   m_ObjectHideFlags: 0
@@ -7032,6 +7032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324684758}
   - component: {fileID: 324684757}
+  - component: {fileID: 324684759}
   m_Layer: 0
   m_Name: Sprite_Mesa_Animation_0 (1)
   m_TagString: Untagged
@@ -7106,6 +7107,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &324684759
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324684756}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.4, y: 0.4}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.4}
+  m_EdgeRadius: 0
 --- !u!1 &360256604
 GameObject:
   m_ObjectHideFlags: 0
@@ -9994,7 +10021,7 @@ GameObject:
   - component: {fileID: 1074007287}
   - component: {fileID: 1074007286}
   m_Layer: 5
-  m_Name: Step 2
+  m_Name: Step 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13226,7 +13253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10608eb8d5e5f544693124c941063cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Muevete con WASD
+  tutorialMessage: Move with WASD
 --- !u!1 &1218085265
 GameObject:
   m_ObjectHideFlags: 0
@@ -13424,7 +13451,7 @@ MonoBehaviour:
   - {fileID: 1546274912}
   - {fileID: 238398947}
   - {fileID: 982341540}
-  - {fileID: 1333279992}
+  - {fileID: 2075536540}
   - {fileID: 1333279992}
   - {fileID: 1333279992}
   tutorialStepData:
@@ -13449,10 +13476,10 @@ MonoBehaviour:
     scriptsToEnable:
     - {fileID: 1778536661}
     - {fileID: 1778536662}
-  - scriptsToDisable:
-    - {fileID: 1778536662}
+  - scriptsToDisable: []
     scriptsToEnable:
     - {fileID: 1778536661}
+    - {fileID: 1778536662}
   - scriptsToDisable:
     - {fileID: 1778536662}
     scriptsToEnable:
@@ -13591,7 +13618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f7206d409bb6e4b83eed58f47f0132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Presiona Click para Disparar
+  tutorialMessage: Click to shoot
   shootKey: 323
   tutorialText: {fileID: 0}
 --- !u!224 &1333279993
@@ -14245,7 +14272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638dfc16557dca949a9b911f6a3c594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Go Go Go!!!
+  tutorialMessage: Continue through the prison
   arrivalArea: {fileID: 899519101}
   arrivalRadius: 0.5
   playerLayerMask:
@@ -15957,12 +15984,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2075536538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f7206d409bb6e4b83eed58f47f0132, type: 3}
+  m_Script: {fileID: 11500000, guid: 7683947d485e0ed4494eeb5b171d7305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Presiona Click para Disparar
-  shootKey: 323
-  tutorialText: {fileID: 0}
+  tutorialMessage: Interact by pressing E
+  interactionCollider: {fileID: 324684759}
 --- !u!1 &2083133507
 GameObject:
   m_ObjectHideFlags: 0
