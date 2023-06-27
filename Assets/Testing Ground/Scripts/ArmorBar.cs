@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeBar : MonoBehaviour
+public class ArmorBar : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     private Image foregroundImage;
@@ -15,6 +15,6 @@ public class LifeBar : MonoBehaviour
 
     private void Update()
     {
-        foregroundImage.fillAmount = (float)playerHealth.currentHealth / playerHealth.maxHealth;
+        foregroundImage.fillAmount = (float)playerHealth.currentArmor / playerHealth.maxArmor;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
+    public int maxArmor = 3;
+    public int currentArmor;
     public int currentHealth;
     public float invincibilityTime = 1f;
     public bool isInvincible = false;
@@ -23,17 +25,25 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInvincible)
         {
-            currentHealth -= damage;
-
-            if (currentHealth <= 0)
+            if(currentArmor >= 0)
             {
-                Die();
+                currentArmor -= damage;
             }
             else
             {
-                StartCoroutine(Invincibility());
-                playerScript.GetShot();
+                currentHealth -= damage;
+
+                if (currentHealth <= 0)
+                {
+                    Die();
+                }
+                else
+                {
+                    StartCoroutine(Invincibility());
+                    playerScript.GetShot();
+                }
             }
+           
         }
     }
 
