@@ -10,6 +10,7 @@ public class ShootingScript : MonoBehaviour
     public float baseFireRate = 0.5f;
     private float currentFireRate;
     private float nextFireTime;
+    public int numberOfBullets = 5;
     public ChangeWeapon changeWeapon;
 
     private void Start()
@@ -33,14 +34,13 @@ public class ShootingScript : MonoBehaviour
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);//la direccion del maouse para disparar
             Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;//la posicion del maouse hacia donde el jugador esta disparando
 
-            int numberOfBullets = 2; // Número de balas a disparar
 
             for (int i = 0; i < numberOfBullets; i++)
             {
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
                 // Calcula un ángulo único para cada bala
-                float bulletAngleOffset = 30f; // Separación angular entre las balas
+                float bulletAngleOffset = 5f; // Separación angular entre las balas
                 float currentAngle = angle + (i - (numberOfBullets - 1) / 2) * bulletAngleOffset;
 
                 // Calcula la dirección correspondiente al ángulo de la bala actual
