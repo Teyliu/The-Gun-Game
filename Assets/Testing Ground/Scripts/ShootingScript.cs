@@ -5,10 +5,12 @@ using UnityEngine;
 public class ShootingScript : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject shotgunbulletPrefab;
     public float bulletSpeed = 10f;
     public float baseFireRate = 0.5f;
     private float currentFireRate;
     private float nextFireTime;
+    public ChangeWeapon changeWeapon;
 
     private void Start()
     {
@@ -26,11 +28,36 @@ public class ShootingScript : MonoBehaviour
 
     private void Shoot()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        if (changeWeapon.hadShotgun == true)
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+
+            int numberOfBullets = 3; // Número de balas a disparar
+
+            for (int i = 0; i < numberOfBullets; i++)
+            {
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+                // Calcula un ángulo único para cada bala
+                float bulletAngleOffset = 30f; // Separación angular entre las balas
+                float currentAngle = angle + (i - (numberOfBullets - 1) / 2) * bulletAngleOffset;
+
+                // Calcula la dirección correspondiente al ángulo de la bala actual
+                Vector2 currentDirection = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));
+
+                GameObject bullet = Instantiate(shotgunbulletPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, currentAngle)));
+                bullet.GetComponent<Rigidbody2D>().velocity = currentDirection * bulletSpeed;
+            }
+        }
+        else
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
+            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        }
     }
 
     public void IncreaseFireRate(float modifier, float duration)

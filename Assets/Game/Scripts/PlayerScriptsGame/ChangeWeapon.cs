@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ChangeWeapon : MonoBehaviour
 {
-    [SerializeField] private bool hadPistol;
-    [SerializeField] private bool hadShotgun;
+    [SerializeField] public bool hadPistol;
+    [SerializeField] public bool hadShotgun;
     [SerializeField] private GameObject shotgun;
     [SerializeField] private GameObject pistol;
     public Animator animator;
