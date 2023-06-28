@@ -8777,7 +8777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638dfc16557dca949a9b911f6a3c594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Camina
+  tutorialMessage: Keep walking
   arrivalArea: {fileID: 1028730946}
   arrivalRadius: 0.5
   playerLayerMask:
@@ -13451,9 +13451,6 @@ MonoBehaviour:
   - {fileID: 1546274912}
   - {fileID: 238398947}
   - {fileID: 982341540}
-  - {fileID: 2075536540}
-  - {fileID: 1333279992}
-  - {fileID: 1333279992}
   tutorialStepData:
   - scriptsToDisable:
     - {fileID: 1778536662}
@@ -13476,18 +13473,6 @@ MonoBehaviour:
     scriptsToEnable:
     - {fileID: 1778536661}
     - {fileID: 1778536662}
-  - scriptsToDisable: []
-    scriptsToEnable:
-    - {fileID: 1778536661}
-    - {fileID: 1778536662}
-  - scriptsToDisable:
-    - {fileID: 1778536662}
-    scriptsToEnable:
-    - {fileID: 1778536661}
-  - scriptsToDisable:
-    - {fileID: 1778536662}
-    scriptsToEnable:
-    - {fileID: 1778536661}
   playerPrefab: {fileID: 1778536654}
   stepPauseDuration: 1
 --- !u!4 &1282090296
