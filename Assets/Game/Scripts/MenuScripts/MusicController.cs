@@ -9,25 +9,25 @@ public class MusicController : MonoBehaviour
     public AudioSource musicSource;
     public Button musicButton;
 
-    private bool isMusicEnabled = true;
+    public bool isMusicEnabled = true;
 
-    private void Start()
+    public void Start()
     {
         musicButton.onClick.AddListener(ToggleMusic);
     }
 
-    private void ToggleMusic()
+    public void ToggleMusic()
     {
         isMusicEnabled = !isMusicEnabled;
         UpdateMusicButton();
 
         if (isMusicEnabled)
         {
-            musicSource.Play();
+            musicSource.Stop();
         }
         else
         {
-            musicSource.Stop();
+            musicSource.Play();
         }
     }
 
