@@ -30,10 +30,10 @@ public class ShootingScript : MonoBehaviour
     {
         if (changeWeapon.hadShotgun == true)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);//la direccion del maouse para disparar
+            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;//la posicion del maouse hacia donde el jugador esta disparando
 
-            int numberOfBullets = 3; // Número de balas a disparar
+            int numberOfBullets = 2; // Número de balas a disparar
 
             for (int i = 0; i < numberOfBullets; i++)
             {
