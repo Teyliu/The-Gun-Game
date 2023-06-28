@@ -3,43 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class MusicController : MonoBehaviour
 {
     public AudioSource musicSource;
     public Button musicButton;
 
-    public bool isMusicEnabled = true;
+    private bool isMusicMuted = false;
 
-    public void Start()
+    private void Start()
     {
         musicButton.onClick.AddListener(ToggleMusic);
     }
 
     public void ToggleMusic()
     {
-        isMusicEnabled = !isMusicEnabled;
-        UpdateMusicButton();
+        isMusicMuted = !isMusicMuted;
 
-        if (isMusicEnabled)
+        if (isMusicMuted)
         {
-            musicSource.Stop();
+            musicSource.mute = true;
         }
         else
         {
-            musicSource.Play();
-        }
-    }
-
-    private void UpdateMusicButton()
-    {
-        if (isMusicEnabled)
-        {
-            musicButton.GetComponentInChildren<Text>().text = "Música Desactivada";
-        }
-        else
-        {
-            musicButton.GetComponentInChildren<Text>().text = "Música Activada";
+            musicSource.mute = false;
         }
     }
 }
