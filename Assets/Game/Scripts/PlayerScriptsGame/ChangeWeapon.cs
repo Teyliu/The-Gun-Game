@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ChangeWeapon : MonoBehaviour
 {
-    [SerializeField] public bool hadPistol;
-    [SerializeField] public bool hadShotgun;
     [SerializeField] private GameObject shotgun;
     [SerializeField] private GameObject pistol;
     public Animator animator;
     public RuntimeAnimatorController TwoHands;
     public RuntimeAnimatorController OneHands;
     public RuntimeAnimatorController ZeroHands;
-    //public bool condicionCumplida;
+    public bool hadPistol;
+    public bool hadShotgun;
 
     private void Start()
     {

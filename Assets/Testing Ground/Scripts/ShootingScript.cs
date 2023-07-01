@@ -44,7 +44,7 @@ public class ShootingScript : MonoBehaviour
                 float currentAngle = angle + (i - (numberOfBullets - 1) / 2) * bulletAngleOffset; //Calcula un ángulo único para cada bala en función del ángulo base y el desplazamiento angular.
 
                 // Calcula la dirección correspondiente al ángulo de la bala actual
-                Vector2 currentDirection = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));  // Calcula la dirección correspondiente al ángulo de la bala actual utilizando las funciones trigonométricas Mathf.Cos y Mathf.Sin.
+                Vector2 currentDirection = new(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));  // Calcula la dirección correspondiente al ángulo de la bala actual utilizando las funciones trigonométricas Mathf.Cos y Mathf.Sin.
 
                 GameObject bullet = Instantiate(shotgunbulletPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, currentAngle)));
                 bullet.GetComponent<Rigidbody2D>().velocity = currentDirection * bulletSpeed;

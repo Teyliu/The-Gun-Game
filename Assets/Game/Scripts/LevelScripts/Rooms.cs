@@ -14,7 +14,7 @@ public class Rooms : MonoBehaviour
 
 
     private bool bloqueadoresActivados;
-    [SerializeField] private List<GameObject> enemigosEnArea = new List<GameObject>();
+    [SerializeField] private List<GameObject> enemigosEnArea = new();
 
     private void Start()
     {
