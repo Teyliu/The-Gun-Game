@@ -8,9 +8,7 @@ public class CustomRenderPipeline : ScriptableRendererFeature
     {
         public RenderTargetIdentifier Source { get; set; }
         public Material DarknessMaterial { get; set; }
-        public Material LightMaterial { get; set; }
         public float DarknessIntensity { get; set; }
-        public float LightIntensity { get; set; }
 
         private RenderTargetHandle destination;
 
@@ -28,7 +26,7 @@ public class CustomRenderPipeline : ScriptableRendererFeature
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            if (DarknessMaterial == null || LightMaterial == null || Source == default)
+            if (DarknessMaterial == null || Source == default)
                 return;
 
             CommandBuffer cmd = CommandBufferPool.Get("Custom Render Pass");
@@ -36,25 +34,8 @@ public class CustomRenderPipeline : ScriptableRendererFeature
             // Render the scene with the darkness material
             cmd.Blit(Source, destination.Identifier(), DarknessMaterial);
 
-            // Set the light intensity property in the light material
-            LightMaterial.SetFloat("_Intensity", LightIntensity);
-
-            // Render the objects with the light material
-            Renderer[] renderers = GameObject.FindObjectsOfType<Renderer>();
-            foreach (Renderer renderer in renderers)
-            {
-                Material[] materials = renderer.sharedMaterials;
-                for (int i = 0; i < materials.Length; i++)
-                {
-                    if (materials[i].shader == LightMaterial.shader)
-                    {
-                        // Set the darkness intensity property in the light material
-                        materials[i].SetFloat("_DarknessIntensity", DarknessIntensity);
-                    }
-                }
-
-                cmd.DrawRenderer(renderer, LightMaterial);
-            }
+            // Set the darkness intensity property in the darkness material
+            DarknessMaterial.SetFloat("_Intensity", DarknessIntensity);
 
             // Blit the result to the source
             cmd.Blit(destination.Identifier(), Source);
@@ -62,7 +43,6 @@ public class CustomRenderPipeline : ScriptableRendererFeature
             context.ExecuteCommandBuffer(cmd);
             CommandBufferPool.Release(cmd);
         }
-
 
         public override void FrameCleanup(CommandBuffer cmd)
         {
@@ -73,17 +53,14 @@ public class CustomRenderPipeline : ScriptableRendererFeature
     CustomRenderPass customRenderPass;
 
     public Material darknessMaterial;
-    public Material lightMaterial;
     public float darknessIntensity;
-    public float lightIntensity;
 
     public override void Create()
     {
         customRenderPass = new CustomRenderPass
         {
             renderPassEvent = RenderPassEvent.AfterRenderingTransparents,
-            DarknessMaterial = darknessMaterial,
-            LightMaterial = lightMaterial
+            DarknessMaterial = darknessMaterial
         };
     }
 
@@ -91,7 +68,6 @@ public class CustomRenderPipeline : ScriptableRendererFeature
     {
         customRenderPass.Source = renderer.cameraColorTarget;
         customRenderPass.DarknessIntensity = darknessIntensity;
-        customRenderPass.LightIntensity = lightIntensity;
 
         renderer.EnqueuePass(customRenderPass);
     }

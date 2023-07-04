@@ -12,7 +12,8 @@ public class ChangeWeapon : MonoBehaviour
     public RuntimeAnimatorController ZeroHands;
     public bool hadPistol;
     public bool hadShotgun;
-    public bool isShotgunAvailable; // New bool for shotgun availability
+    public bool isShotgunAvailable;
+    public AudioClip changeWeaponSound;
 
     private void Start()
     {
@@ -48,5 +49,7 @@ public class ChangeWeapon : MonoBehaviour
             hadShotgun = false;
             animator.runtimeAnimatorController = OneHands;
         }
+
+        AudioSource.PlayClipAtPoint(changeWeaponSound, transform.position);
     }
 }

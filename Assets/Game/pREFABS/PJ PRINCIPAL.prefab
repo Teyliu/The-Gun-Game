@@ -333,6 +333,7 @@ MonoBehaviour:
   hadPistol: 0
   hadShotgun: 0
   isShotgunAvailable: 0
+  changeWeaponSound: {fileID: 8300000, guid: ab2bcc7afa46a4d4c9cf3ae7db9caf02, type: 3}
 --- !u!70 &4076659977784480307
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
