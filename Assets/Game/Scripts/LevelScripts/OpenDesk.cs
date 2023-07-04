@@ -5,35 +5,104 @@ using UnityEngine;
 public class OpenDesk : MonoBehaviour
 {
     public Animator animator;
-
+    public GameObject[] itemPrefabs;
+    private GameObject[] displayItems;
+    public float displayDuration = 2f;
+    public float dropDistance = 1f; // Distance at which items will be dropped from the desk
+    public float dropAngle = 45f; // Angle at which items will be dropped (in degrees)
+    public AudioClip openSoundClip;
     private bool playerInRange;
-    private bool open;
+    private bool isOpened;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Awake()
+    {
+        displayItems = new GameObject[itemPrefabs.Length];
+        for (int i = 0; i < itemPrefabs.Length; i++)
+        {
+            GameObject displayItem = new("DisplayItem");
+            displayItem.transform.SetParent(transform);
+            displayItem.transform.localPosition = Vector3.zero;
+            displayItem.SetActive(false);
+
+            SpriteRenderer itemRenderer = displayItem.AddComponent<SpriteRenderer>();
+            itemRenderer.sprite = itemPrefabs[i].GetComponent<SpriteRenderer>().sprite;
+
+            displayItems[i] = displayItem;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
-            Debug.Log("jugador en rango");
+            Debug.Log("Player in range");
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        else
         {
             playerInRange = false;
-            Debug.Log("jugador fuera de rango");
+            Debug.Log("Player out of range");
         }
     }
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !isOpened)
         {
-            animator.SetTrigger("Open");
+            OpenDeskInteraction();
+        }
+    }
+
+    private void OpenDeskInteraction()
+    {
+        isOpened = true;
+        animator.SetTrigger("Open");
+        PlayOpenSound();
+        StartCoroutine(DisplayItemsAndAcquire());
+    }
+
+    private IEnumerator DisplayItemsAndAcquire()
+    {
+        foreach (GameObject displayItem in displayItems)
+        {
+            displayItem.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(displayDuration);
+
+        foreach (GameObject displayItem in displayItems)
+        {
+            displayItem.SetActive(false);
+        }
+
+        Vector2 dropDirection = Quaternion.Euler(0f, 0f, dropAngle) * Vector2.up; // Direction in which items will be dropped
+        foreach (GameObject itemPrefab in itemPrefabs)
+        {
+            if (itemPrefab != null)
+            {
+                GameObject instantiatedItem = Instantiate(itemPrefab);
+                instantiatedItem.SetActive(true);
+
+                // Set the position at a distance from the desk
+                Vector2 dropOffset = dropDirection * dropDistance;
+                instantiatedItem.transform.position = transform.position + (Vector3)dropOffset;
+            }
+        }
+    }
+
+    private void PlayOpenSound()
+    {
+        if (openSoundClip != null)
+        {
+            AudioSource.PlayClipAtPoint(openSoundClip, transform.position);
         }
     }
 }
+
+
+
+
+
+
 
 

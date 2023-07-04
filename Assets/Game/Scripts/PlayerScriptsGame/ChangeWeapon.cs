@@ -12,6 +12,7 @@ public class ChangeWeapon : MonoBehaviour
     public RuntimeAnimatorController ZeroHands;
     public bool hadPistol;
     public bool hadShotgun;
+    public bool isShotgunAvailable; // New bool for shotgun availability
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class ChangeWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && isShotgunAvailable)
         {
             Change();
         }

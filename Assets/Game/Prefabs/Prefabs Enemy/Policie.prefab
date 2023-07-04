@@ -183,9 +183,9 @@ MonoBehaviour:
   numberOfBullets: 1
   enableSpread: 0
   spreadAngle: 0
-  minSpeed: 15
-  maxSpeed: 25
-  bulletSpeed: 1.25
+  minSpeed: 10
+  maxSpeed: 15
+  bulletSpeed: 2
 --- !u!70 &8784855771701620182
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -147,6 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7956133224409265156}
+  itemPrefabs: []
+  displayDuration: 2
+  dropDistance: 0.1
+  dropAngle: 180
+  openSoundClip: {fileID: 8300000, guid: 396f00f939095c944806ee9578a2981c, type: 3}
 --- !u!61 &5079988371662408278
 BoxCollider2D:
   m_ObjectHideFlags: 0

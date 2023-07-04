@@ -4,34 +4,31 @@ using UnityEngine.Rendering.Universal;
 
 public class CustomRenderPipeline : ScriptableRendererFeature
 {
-    class CustomRenderPass : ScriptableRenderPass
+    class DarknessRenderPass : ScriptableRenderPass
     {
         public RenderTargetIdentifier Source { get; set; }
-        public Material Material { get; set; }
-        public float Intensity { get; set; }
+        public Material DarknessMaterial { get; set; }
 
         private RenderTargetHandle destination;
 
-        public CustomRenderPass()
+        public DarknessRenderPass()
         {
-            destination.Init("_CustomRenderPassTexture");
+            destination.Init("_DarknessRenderPassTexture");
         }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            if (Material == null || Source == default)
+            if (DarknessMaterial == null || Source == default)
                 return;
 
-            CommandBuffer cmd = CommandBufferPool.Get("Custom Render Pass");
+            CommandBuffer cmd = CommandBufferPool.Get("Darkness Render Pass");
             RenderTextureDescriptor cameraTextureDescriptor = renderingData.cameraData.cameraTargetDescriptor;
             cmd.GetTemporaryRT(destination.id, cameraTextureDescriptor);
 
-            Blit(cmd, Source, destination.Identifier(), Material);
+            Blit(cmd, Source, destination.Identifier(), DarknessMaterial);
 
-            // Apply intensity
-            Material.SetFloat("_Intensity", Intensity);
+            Blit(cmd, destination.Identifier(), Source);
 
-            Blit(cmd, destination.Identifier(), Source, Material);
             cmd.ReleaseTemporaryRT(destination.id);
 
             context.ExecuteCommandBuffer(cmd);
@@ -39,25 +36,66 @@ public class CustomRenderPipeline : ScriptableRendererFeature
         }
     }
 
-    CustomRenderPass customRenderPass;
+    class LightRenderPass : ScriptableRenderPass
+    {
+        public RenderTargetIdentifier Source { get; set; }
+        public Material LightMaterial { get; set; }
 
+        private RenderTargetHandle destination;
+
+        public LightRenderPass()
+        {
+            destination.Init("_LightRenderPassTexture");
+        }
+
+        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+        {
+            if (LightMaterial == null || Source == default)
+                return;
+
+            CommandBuffer cmd = CommandBufferPool.Get("Light Render Pass");
+            RenderTextureDescriptor cameraTextureDescriptor = renderingData.cameraData.cameraTargetDescriptor;
+            cmd.GetTemporaryRT(destination.id, cameraTextureDescriptor);
+
+            Blit(cmd, Source, destination.Identifier());
+
+            cmd.SetGlobalTexture("_DarknessTexture", destination.Identifier());
+            Blit(cmd, destination.Identifier(), Source, LightMaterial);
+
+            cmd.ReleaseTemporaryRT(destination.id);
+
+            context.ExecuteCommandBuffer(cmd);
+            CommandBufferPool.Release(cmd);
+        }
+    }
+
+    DarknessRenderPass darknessRenderPass;
+    LightRenderPass lightRenderPass;
+
+    public Material darknessMaterial;
     public Material lightMaterial;
-    public float lightIntensity;
 
     public override void Create()
     {
-        customRenderPass = new CustomRenderPass
+        darknessRenderPass = new DarknessRenderPass
         {
-            renderPassEvent = RenderPassEvent.AfterRenderingTransparents
+            renderPassEvent = RenderPassEvent.AfterRenderingTransparents,
+            DarknessMaterial = darknessMaterial
+        };
+
+        lightRenderPass = new LightRenderPass
+        {
+            renderPassEvent = RenderPassEvent.AfterRenderingTransparents,
+            LightMaterial = lightMaterial
         };
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        customRenderPass.Source = renderer.cameraColorTarget;
-        customRenderPass.Material = lightMaterial;
-        customRenderPass.Intensity = lightIntensity;
+        darknessRenderPass.Source = renderer.cameraColorTarget;
+        lightRenderPass.Source = renderer.cameraColorTarget;
 
-        renderer.EnqueuePass(customRenderPass);
+        renderer.EnqueuePass(darknessRenderPass);
+        renderer.EnqueuePass(lightRenderPass);
     }
 }

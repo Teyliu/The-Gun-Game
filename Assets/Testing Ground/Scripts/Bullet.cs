@@ -38,6 +38,8 @@ public class Bullet : MonoBehaviour
         }
     }
 
+
+
     public void SetDirection(Vector3 direction)
     {
         this.direction = direction;

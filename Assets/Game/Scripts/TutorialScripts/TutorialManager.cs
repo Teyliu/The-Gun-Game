@@ -77,7 +77,7 @@ public class TutorialManager : MonoBehaviour
 
         ShowCurrentStep();
         ApplyScriptChanges(tutorialStepData[currentStepIndex].scriptsToDisable, tutorialStepData[currentStepIndex].scriptsToEnable);
-        Time.timeScale = 1f; // Pause game time
+        Time.timeScale = 1f; 
     }
 
     private void ShowCurrentStep()
@@ -111,10 +111,9 @@ public class TutorialManager : MonoBehaviour
             {
                 foreach (MonoBehaviour script in scriptsToDisable)
                 {
-                    Behaviour behaviour = script as Behaviour;
-                    if (behaviour != null)
+                    if (script != null)
                     {
-                        behaviour.enabled = false;
+                        script.enabled = false;
                     }
                 }
             }
@@ -124,10 +123,9 @@ public class TutorialManager : MonoBehaviour
             {
                 foreach (MonoBehaviour script in scriptsToEnable)
                 {
-                    Behaviour behaviour = script as Behaviour;
-                    if (behaviour != null)
+                    if (script != null)
                     {
-                        behaviour.enabled = true;
+                        script.enabled = true;
                     }
                 }
             }
@@ -147,8 +145,6 @@ public class TutorialManager : MonoBehaviour
         }
 
         // Disable all the scripts on the player object
-        MonoBehaviour[] allScripts = playerObject.GetComponentsInChildren<MonoBehaviour>(includeInactive: true);
-        ApplyScriptChanges(allScripts, null);
         // Enable the player script itself
         PlayerScript playerScript = playerObject.GetComponent<PlayerScript>();
         if (playerScript != null)

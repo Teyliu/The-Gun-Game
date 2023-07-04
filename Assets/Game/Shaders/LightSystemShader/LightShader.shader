@@ -3,19 +3,14 @@ Shader "Custom/LightShader"
     Properties
     {
         _MainTex("Main Texture", 2D) = "white" {}
-        _LightColor("Light Color", Color) = (1, 1, 1, 1)
         _LightIntensity("Light Intensity", Range(0, 1)) = 0.5
     }
 
         SubShader
         {
             Tags { "Queue" = "Transparent" }
-            Stencil
-            {
-                Ref 1
-                Comp Always
-                Pass Replace
-            }
+            Blend SrcAlpha OneMinusSrcAlpha
+
             Pass
             {
                 CGPROGRAM
@@ -36,7 +31,6 @@ Shader "Custom/LightShader"
                 };
 
                 sampler2D _MainTex;
-                float4 _LightColor;
                 float _LightIntensity;
 
                 v2f vert(appdata v)
@@ -50,11 +44,13 @@ Shader "Custom/LightShader"
                 fixed4 frag(v2f i) : SV_Target
                 {
                     fixed4 texColor = tex2D(_MainTex, i.uv);
-                    texColor.rgb *= _LightColor.rgb * _LightIntensity; // Apply light color and intensity
-                    return texColor;
-                }
 
-                ENDCG
+                // Subtract the light intensity to cancel out the darkness effect
+                texColor.rgb -= _LightIntensity;
+
+                return texColor;
             }
+            ENDCG
+        }
         }
 }

@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInvincible)
         {
-            if(currentArmor >= 0)
+            if(currentArmor >= 1)
             {
                 currentArmor -= damage;
             }

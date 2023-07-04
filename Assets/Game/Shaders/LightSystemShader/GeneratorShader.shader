@@ -1,16 +1,13 @@
-Shader "Custom/DarknessShader"
+Shader "Custom/LightEmulationShader"
 {
     Properties
     {
         _MainTex("Main Texture", 2D) = "white" {}
-        _DarknessIntensity("Darkness Intensity", Range(0, 1)) = 0.5
+        _Intensity("Intensity", Range(0, 1)) = 0.5
     }
 
         SubShader
         {
-            Tags { "Queue" = "Transparent" }
-            Blend SrcAlpha OneMinusSrcAlpha
-
             Pass
             {
                 CGPROGRAM
@@ -31,7 +28,7 @@ Shader "Custom/DarknessShader"
                 };
 
                 sampler2D _MainTex;
-                float _DarknessIntensity;
+                float _Intensity;
 
                 v2f vert(appdata v)
                 {
@@ -43,10 +40,12 @@ Shader "Custom/DarknessShader"
 
                 fixed4 frag(v2f i) : SV_Target
                 {
+                    // Apply the main texture
                     fixed4 texColor = tex2D(_MainTex, i.uv);
 
-                // Apply darkness based on intensity
-                texColor.rgb *= (1.0 - _DarknessIntensity);
+                // Apply light emulation effect based on intensity
+                texColor.rgb += _Intensity * 0.2; // Increase brightness
+                texColor.rgb = saturate(texColor.rgb); // Clamp values to [0, 1]
 
                 return texColor;
             }
@@ -54,4 +53,3 @@ Shader "Custom/DarknessShader"
         }
         }
 }
-
