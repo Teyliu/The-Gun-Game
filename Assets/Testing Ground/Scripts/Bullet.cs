@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
     public int damage;
     public float lifetime;
     public AudioClip[] bulletSounds;
-
     private Vector3 direction;
 
     private void Start()
@@ -36,7 +35,14 @@ public class Bullet : MonoBehaviour
             playerHealth.TakeDamage(damage);
             Destroy(gameObject);
         }
+        else if (collision.CompareTag("Untagged"))
+        {
+            Destroy(gameObject);
+        }
     }
+
+
+
 
 
 

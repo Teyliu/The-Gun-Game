@@ -66,7 +66,7 @@ Material:
     - _AtmosphericSmoothness: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DarknessIntensity: 0.7
+    - _DarknessIntensity: 0.499
     - _DarknessTransparency: 0.775
     - _DetailNormalMapScale: 1
     - _DstBlend: 0

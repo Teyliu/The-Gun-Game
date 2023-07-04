@@ -26,7 +26,6 @@ public class BulletDamage : MonoBehaviour
     {
         foreach (Collider2D collider in colliders)
         {
-            // Ignore collision with colliders that have one of the ignored tags
             foreach (string ignoredTag in ignoredTags)
             {
                 if (collision.gameObject.CompareTag(ignoredTag))
