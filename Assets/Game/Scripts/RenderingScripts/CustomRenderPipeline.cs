@@ -4,98 +4,95 @@ using UnityEngine.Rendering.Universal;
 
 public class CustomRenderPipeline : ScriptableRendererFeature
 {
-    class DarknessRenderPass : ScriptableRenderPass
+    class CustomRenderPass : ScriptableRenderPass
     {
         public RenderTargetIdentifier Source { get; set; }
         public Material DarknessMaterial { get; set; }
-
-        private RenderTargetHandle destination;
-
-        public DarknessRenderPass()
-        {
-            destination.Init("_DarknessRenderPassTexture");
-        }
-
-        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
-        {
-            if (DarknessMaterial == null || Source == default)
-                return;
-
-            CommandBuffer cmd = CommandBufferPool.Get("Darkness Render Pass");
-            RenderTextureDescriptor cameraTextureDescriptor = renderingData.cameraData.cameraTargetDescriptor;
-            cmd.GetTemporaryRT(destination.id, cameraTextureDescriptor);
-
-            Blit(cmd, Source, destination.Identifier(), DarknessMaterial);
-
-            Blit(cmd, destination.Identifier(), Source);
-
-            cmd.ReleaseTemporaryRT(destination.id);
-
-            context.ExecuteCommandBuffer(cmd);
-            CommandBufferPool.Release(cmd);
-        }
-    }
-
-    class LightRenderPass : ScriptableRenderPass
-    {
-        public RenderTargetIdentifier Source { get; set; }
         public Material LightMaterial { get; set; }
+        public float DarknessIntensity { get; set; }
+        public float LightIntensity { get; set; }
 
         private RenderTargetHandle destination;
 
-        public LightRenderPass()
+        public CustomRenderPass()
         {
-            destination.Init("_LightRenderPassTexture");
+            destination.Init("_CustomRenderPassTexture");
+        }
+
+        public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
+        {
+            cmd.GetTemporaryRT(destination.id, cameraTextureDescriptor);
+            ConfigureTarget(destination.Identifier());
+            ConfigureClear(ClearFlag.All, Color.clear);
         }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            if (LightMaterial == null || Source == default)
+            if (DarknessMaterial == null || LightMaterial == null || Source == default)
                 return;
 
-            CommandBuffer cmd = CommandBufferPool.Get("Light Render Pass");
-            RenderTextureDescriptor cameraTextureDescriptor = renderingData.cameraData.cameraTargetDescriptor;
-            cmd.GetTemporaryRT(destination.id, cameraTextureDescriptor);
+            CommandBuffer cmd = CommandBufferPool.Get("Custom Render Pass");
 
-            Blit(cmd, Source, destination.Identifier());
+            // Render the scene with the darkness material
+            cmd.Blit(Source, destination.Identifier(), DarknessMaterial);
 
-            cmd.SetGlobalTexture("_DarknessTexture", destination.Identifier());
-            Blit(cmd, destination.Identifier(), Source, LightMaterial);
+            // Set the light intensity property in the light material
+            LightMaterial.SetFloat("_Intensity", LightIntensity);
 
-            cmd.ReleaseTemporaryRT(destination.id);
+            // Render the objects with the light material
+            Renderer[] renderers = GameObject.FindObjectsOfType<Renderer>();
+            foreach (Renderer renderer in renderers)
+            {
+                Material[] materials = renderer.sharedMaterials;
+                for (int i = 0; i < materials.Length; i++)
+                {
+                    if (materials[i].shader == LightMaterial.shader)
+                    {
+                        // Set the darkness intensity property in the light material
+                        materials[i].SetFloat("_DarknessIntensity", DarknessIntensity);
+                    }
+                }
+
+                cmd.DrawRenderer(renderer, LightMaterial);
+            }
+
+            // Blit the result to the source
+            cmd.Blit(destination.Identifier(), Source);
 
             context.ExecuteCommandBuffer(cmd);
             CommandBufferPool.Release(cmd);
         }
+
+
+        public override void FrameCleanup(CommandBuffer cmd)
+        {
+            cmd.ReleaseTemporaryRT(destination.id);
+        }
     }
 
-    DarknessRenderPass darknessRenderPass;
-    LightRenderPass lightRenderPass;
+    CustomRenderPass customRenderPass;
 
     public Material darknessMaterial;
     public Material lightMaterial;
+    public float darknessIntensity;
+    public float lightIntensity;
 
     public override void Create()
     {
-        darknessRenderPass = new DarknessRenderPass
+        customRenderPass = new CustomRenderPass
         {
             renderPassEvent = RenderPassEvent.AfterRenderingTransparents,
-            DarknessMaterial = darknessMaterial
-        };
-
-        lightRenderPass = new LightRenderPass
-        {
-            renderPassEvent = RenderPassEvent.AfterRenderingTransparents,
+            DarknessMaterial = darknessMaterial,
             LightMaterial = lightMaterial
         };
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        darknessRenderPass.Source = renderer.cameraColorTarget;
-        lightRenderPass.Source = renderer.cameraColorTarget;
+        customRenderPass.Source = renderer.cameraColorTarget;
+        customRenderPass.DarknessIntensity = darknessIntensity;
+        customRenderPass.LightIntensity = lightIntensity;
 
-        renderer.EnqueuePass(darknessRenderPass);
-        renderer.EnqueuePass(lightRenderPass);
+        renderer.EnqueuePass(customRenderPass);
     }
 }

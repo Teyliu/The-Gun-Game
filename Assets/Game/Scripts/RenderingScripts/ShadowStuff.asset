@@ -21,7 +21,7 @@ MonoBehaviour:
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 1, z: 0}
   m_HDREmulationScale: 1
-  m_LightRenderTextureScale: 0.5
+  m_LightRenderTextureScale: 0.509
   m_LightBlendStyles:
   - name: Multiply
     maskTextureChannel: 0
@@ -72,5 +72,7 @@ MonoBehaviour:
   m_Name: CustomRenderPipeline
   m_EditorClassIdentifier: 
   m_Active: 1
+  darknessMaterial: {fileID: 2100000, guid: c237bb2656f6ba44282ebe83a5d31ed6, type: 2}
   lightMaterial: {fileID: 2100000, guid: 37f6a31940dffc64a958ab66f5409fcb, type: 2}
-  lightIntensity: 0
+  darknessIntensity: 1
+  lightIntensity: 0.5
