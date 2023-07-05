@@ -53,6 +53,12 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
 
+    public void Armor(int amount)
+    {
+        currentArmor += amount;
+        currentArmor = Mathf.Clamp(currentArmor, 0, maxArmor);
+    }
+
     IEnumerator Invincibility()
     {
         isInvincible = true;

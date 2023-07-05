@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7956133224409265156}
-  itemPrefabs: []
+  itemPrefabs:
+  - {fileID: 6650424317916109011, guid: cbcf890184791b044a885b679f0272eb, type: 3}
   displayDuration: 2
   dropDistance: 0.1
   dropAngle: 180
