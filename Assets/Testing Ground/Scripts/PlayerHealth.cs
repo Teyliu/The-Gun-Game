@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
             if(currentArmor >= 1)
             {
                 currentArmor -= damage;
+                StartCoroutine(Invincibility());
             }
             else
             {
