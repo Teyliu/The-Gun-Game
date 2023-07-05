@@ -8748,7 +8748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638dfc16557dca949a9b911f6a3c594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Keep walking
+  tutorialMessage: Go to the other cell
   arrivalArea: {fileID: 1028730946}
   arrivalRadius: 0.5
   playerLayerMask:
@@ -15324,7 +15324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f7206d409bb6e4b83eed58f47f0132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialMessage: Presiona Click para Disparar
+  tutorialMessage: Press "Space Bar" for dash
   shootKey: 323
   tutorialText: {fileID: 0}
 --- !u!1 &1753742615
