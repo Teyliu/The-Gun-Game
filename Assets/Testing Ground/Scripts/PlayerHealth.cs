@@ -34,14 +34,13 @@ public class PlayerHealth : MonoBehaviour
             {
                 currentHealth -= damage;
 
-                if (currentHealth <= 0)
+                if (currentHealth <= 1)
                 {
                     Die();
                 }
                 else
                 {
                     StartCoroutine(Invincibility());
-                    playerScript.GetShot();
                 }
             }
            
@@ -62,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Invincibility()
     {
+        playerScript.GetShot();
         isInvincible = true;
         yield return new WaitForSeconds(invincibilityTime);
         isInvincible = false;

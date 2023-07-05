@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7188759870286489101}
   - component: {fileID: 7188759870286489102}
   - component: {fileID: 2852650278027403532}
+  - component: {fileID: 33019987749197603}
   m_Layer: 0
   m_Name: Barril 1
   m_TagString: Untagged
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 57122bd315f7d64449ca404f77b756a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,3 +112,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13150167, y: 0.07548809}
   m_EdgeRadius: 0
+--- !u!50 &33019987749197603
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188759870286489100}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 30
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
