@@ -31,18 +31,32 @@ public class OpenDesk : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerInRange = true;
-            Debug.Log("Player in range");
+            PlayerEnteredRange();
         }
-        else
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            playerInRange = false;
-            Debug.Log("Player out of range");
+            PlayerExitedRange();
         }
+    }
+
+    private void PlayerEnteredRange()
+    {
+        playerInRange = true;
+        Debug.Log("Player entered range");
+    }
+
+    private void PlayerExitedRange()
+    {
+        playerInRange = false;
+        Debug.Log("Player exited range");
     }
 
     private void Update()
