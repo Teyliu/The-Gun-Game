@@ -5795,7 +5795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 75186985}
   - component: {fileID: 75186984}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Police Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13751,7 +13751,7 @@ GameObject:
   - component: {fileID: 378784591}
   - component: {fileID: 378784590}
   - component: {fileID: 378784592}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15088,7 +15088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 493279935}
   - component: {fileID: 493279934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Area Enemigos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15203,7 +15203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502888759}
   - component: {fileID: 502888758}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Area Enemigos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16673,7 +16673,7 @@ GameObject:
   - component: {fileID: 605931306}
   - component: {fileID: 605931305}
   - component: {fileID: 605931304}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Room3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21621,7 +21621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 901033623}
   - component: {fileID: 901033622}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Police Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53743,7 +53743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195856428}
   - component: {fileID: 1195856427}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: PoliceWall 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55910,7 +55910,7 @@ GameObject:
   - component: {fileID: 1372382898}
   - component: {fileID: 1372382901}
   - component: {fileID: 1372382899}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63426,7 +63426,7 @@ GameObject:
   - component: {fileID: 1620586096}
   - component: {fileID: 1620586095}
   - component: {fileID: 1620586094}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Room2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70036,7 +70036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665700352}
   - component: {fileID: 1665700351}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PoliceWall 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71014,7 +71014,7 @@ GameObject:
   - component: {fileID: 1765924731}
   - component: {fileID: 1765924734}
   - component: {fileID: 1765924732}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73323,7 +73323,7 @@ GameObject:
   - component: {fileID: 1998897464}
   - component: {fileID: 1998897463}
   - component: {fileID: 1998897462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Vcam2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
