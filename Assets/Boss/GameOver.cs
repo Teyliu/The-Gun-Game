@@ -1,30 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private GameObject PGameOver;
-    private PlayerHealth PlayerHealth;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private AudioClip gameOverSound;
+
+    private PlayerHealth playerHealth;
+    private MovementScript playerMovement;
+
+    private AudioSource audioSource;
 
     private void Start()
     {
-        PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        PlayerHealth.Died += AddMenu;
-    }
-    private void AddMenu(object sender, EventArgs e)
-    {
-        PGameOver.SetActive(true);
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        playerMovement = FindObjectOfType<MovementScript>();
 
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
+
+    private void Update()
+    {
+        if (playerHealth != null && playerHealth.IsDead)
+        {
+            GameOverSequence();
+        }
+    }
+
+    private void GameOverSequence()
+    {
+        // Play game over sound effect
+        if (gameOverSound != null)
+        {
+            audioSource.PlayOneShot(gameOverSound);
+        }
+
+        // Disable player movement
+        playerMovement.enabled = false;
+
+        // Display the game over panel
+        gameOverPanel.SetActive(true);
+
+        // Optionally, you can pause the game or perform other actions
+
+        // Handle game over logic (e.g., save high scores, etc.)
+
+        // Restart the game or perform other actions
+    }
+
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void Salir()
+
+    public void Quit()
     {
-         Application.Quit();
+        Application.Quit();
     }
 }

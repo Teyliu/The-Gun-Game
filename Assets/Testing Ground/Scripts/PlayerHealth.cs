@@ -12,8 +12,8 @@ public class PlayerHealth : MonoBehaviour
     public bool isInvincible = false;
     public bool isPlayerShot = false;
     private PlayerScript playerScript;
-    public event EventHandler Died;
     public ParticleSystemController particleSystemController; // Reference to the ParticleSystemController script
+    public bool IsDead { get; private set; }
 
     private void Start()
     {
@@ -68,8 +68,9 @@ public class PlayerHealth : MonoBehaviour
         playerScript.GetShot();
     }
 
-    void Die()
+    public void Die()
     {
         Debug.Log("Player died.");
+        IsDead = true;
     }
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1537885535223787593}
   - component: {fileID: 8784855771701620182}
   - component: {fileID: 801611217096733277}
+  - component: {fileID: 3390347452553240682}
   m_Layer: 4
   m_Name: Policie
   m_TagString: Enemy
@@ -117,10 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2b80e0046c7bf42afba3fff001c2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
   health: 1
   contactDamage: 1
-  detectionRange: 5
   deathSounds:
   - {fileID: 8300000, guid: 6a0730032f65df0449ab256ed780168b, type: 3}
   drops:
@@ -186,8 +185,8 @@ MonoBehaviour:
   enableSpread: 0
   spreadAngle: 0
   minSpeed: 8
-  maxSpeed: 10
-  bulletSpeed: 2
+  maxSpeed: 12
+  bulletSpeed: 1
 --- !u!70 &8784855771701620182
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,6 +219,30 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0048709363, y: 0.0012915134}
   m_Size: {x: 0.23843685, y: 0.3484149}
   m_Direction: 0
+--- !u!114 &3390347452553240682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098012710660361120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f704715712a5c184f8032624718b8ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: 0.1
+  speed: 0.01
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 1
+  searchShortcut: 1
+  snapToGrid: 1
+  detectionRange: 3
+  pathRecalculateDelay: 2
+  keepDistance: 1
+  distanceToKeep: 2
+  minMovementThreshold: 0.1
 --- !u!1 &6130710293277799455
 GameObject:
   m_ObjectHideFlags: 0
