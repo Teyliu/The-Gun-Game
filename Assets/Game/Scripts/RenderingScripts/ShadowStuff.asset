@@ -72,5 +72,5 @@ MonoBehaviour:
   m_Name: CustomRenderPipeline
   m_EditorClassIdentifier: 
   m_Active: 1
-  darknessMaterial: {fileID: 2100000, guid: c237bb2656f6ba44282ebe83a5d31ed6, type: 2}
+  darknessMaterial: {fileID: 0}
   darknessIntensity: 0.8

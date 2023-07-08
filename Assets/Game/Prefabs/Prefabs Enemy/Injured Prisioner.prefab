@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c237bb2656f6ba44282ebe83a5d31ed6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,15 +116,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2b80e0046c7bf42afba3fff001c2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 4
   contactDamage: 2
   deathSounds:
   - {fileID: 8300000, guid: 6a0730032f65df0449ab256ed780168b, type: 3}
   drops:
   - item: {fileID: 6650424317916109011, guid: 7ca42510828ecf94b873ca1c55eb827e, type: 3}
     chance: 0.05
-  - item: {fileID: 6650424317916109011, guid: cbcf890184791b044a885b679f0272eb, type: 3}
-    chance: 0.19
 --- !u!50 &1515417974101430054
 Rigidbody2D:
   serializedVersion: 4
@@ -211,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 0.1
-  speed: 0.01
+  speed: 0.02
   obstacles:
     serializedVersion: 2
     m_Bits: 1
