@@ -5797,7 +5797,7 @@ GameObject:
   - component: {fileID: 75186984}
   m_Layer: 4
   m_Name: Police Wall 2
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15090,7 +15090,7 @@ GameObject:
   - component: {fileID: 493279934}
   m_Layer: 3
   m_Name: Area Enemigos
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15205,7 +15205,7 @@ GameObject:
   - component: {fileID: 502888758}
   m_Layer: 4
   m_Name: Area Enemigos
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15648,6 +15648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite_Mesa_Animation_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: 7ca42510828ecf94b873ca1c55eb827e, type: 3}
     - target: {fileID: 7956133224409265155, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -16675,7 +16679,7 @@ GameObject:
   - component: {fileID: 605931304}
   m_Layer: 4
   m_Name: Room3
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19548,6 +19552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite_Mesa_Animation_0
       objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7956133224409265155, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_RootOrder
       value: 148
@@ -19677,6 +19685,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite_Mesa_Animation_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: a9f8d4ee700b1444e839867d6041addb, type: 3}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: 2388eb8f543226142b7f0bdbc865defe, type: 3}
     - target: {fileID: 7956133224409265155, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -20808,6 +20828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite_Mesa_Animation_0 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: 7ca42510828ecf94b873ca1c55eb827e, type: 3}
     - target: {fileID: 7956133224409265155, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_RootOrder
       value: 145
@@ -21623,7 +21647,7 @@ GameObject:
   - component: {fileID: 901033622}
   m_Layer: 3
   m_Name: Police Wall 2
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51869,6 +51893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Christian Prisioner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2614645950925028920, guid: 49abce135ba4fab4fa11be3c0d884653, type: 3}
+      propertyPath: drops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4570613610231842912, guid: 49abce135ba4fab4fa11be3c0d884653, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -53745,7 +53773,7 @@ GameObject:
   - component: {fileID: 1195856427}
   m_Layer: 4
   m_Name: PoliceWall 1
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54753,6 +54781,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite_Mesa_Animation_0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: 7ca42510828ecf94b873ca1c55eb827e, type: 3}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: 2388eb8f543226142b7f0bdbc865defe, type: 3}
     - target: {fileID: 7956133224409265155, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -56580,6 +56620,10 @@ PrefabInstance:
     - target: {fileID: 1515417974101430053, guid: 4398a38e47a119942a7e2dc187292858, type: 3}
       propertyPath: m_Name
       value: Injured Prisioner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515417974101430057, guid: 4398a38e47a119942a7e2dc187292858, type: 3}
+      propertyPath: drops.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1515417974101430058, guid: 4398a38e47a119942a7e2dc187292858, type: 3}
       propertyPath: m_RootOrder
@@ -63428,7 +63472,7 @@ GameObject:
   - component: {fileID: 1620586094}
   m_Layer: 3
   m_Name: Room2
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70038,7 +70082,7 @@ GameObject:
   - component: {fileID: 1665700351}
   m_Layer: 3
   m_Name: PoliceWall 1
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71784,6 +71828,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite_Mesa_Animation_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: 2388eb8f543226142b7f0bdbc865defe, type: 3}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6650424317916109011, guid: 2388eb8f543226142b7f0bdbc865defe, type: 3}
     - target: {fileID: 7956133224409265155, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_RootOrder
       value: 147
@@ -71840,6 +71896,10 @@ PrefabInstance:
     - target: {fileID: 7956133224409265153, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_Name
       value: Sprite_Mesa_Animation_0 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956133224409265154, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7956133224409265155, guid: 61b4ab3aae2778f479de69605c8a89ae, type: 3}
       propertyPath: m_RootOrder

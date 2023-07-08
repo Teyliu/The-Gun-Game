@@ -34,16 +34,18 @@ public class GameOver : MonoBehaviour
     private void GameOverSequence()
     {
         // Play game over sound effect
-        if (gameOverSound != null)
-        {
-            audioSource.PlayOneShot(gameOverSound);
-        }
+
+        
+        audioSource.PlayOneShot(gameOverSound);
+        Debug.Log("AAAAA");
+        
 
         // Disable player movement
         playerMovement.enabled = false;
 
         // Display the game over panel
         gameOverPanel.SetActive(true);
+
 
         // Optionally, you can pause the game or perform other actions
 

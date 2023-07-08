@@ -19,13 +19,14 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         playerScript = PlayerScript.Instance;
+        IsDead = false; // Set IsDead to false initially
     }
 
     public void TakeDamage(int damage)
     {
         if (!isInvincible)
         {
-            if(currentArmor >= 1)
+            if (currentArmor >= 1)
             {
                 currentArmor -= damage;
                 StartCoroutine(Invincibility());
@@ -43,7 +44,6 @@ public class PlayerHealth : MonoBehaviour
                     StartCoroutine(Invincibility());
                 }
             }
-           
         }
     }
 
@@ -70,7 +70,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Player died.");
-        IsDead = true;
+        if (!IsDead) // Check if player is already dead
+        {
+            Debug.Log("Player died.");
+            IsDead = true;
+        }
     }
 }

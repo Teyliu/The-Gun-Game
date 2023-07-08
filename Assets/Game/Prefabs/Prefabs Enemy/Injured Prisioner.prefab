@@ -122,7 +122,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6a0730032f65df0449ab256ed780168b, type: 3}
   drops:
   - item: {fileID: 6650424317916109011, guid: 7ca42510828ecf94b873ca1c55eb827e, type: 3}
-    chance: 0.2
+    chance: 0.05
   - item: {fileID: 6650424317916109011, guid: cbcf890184791b044a885b679f0272eb, type: 3}
     chance: 0.19
 --- !u!50 &1515417974101430054
