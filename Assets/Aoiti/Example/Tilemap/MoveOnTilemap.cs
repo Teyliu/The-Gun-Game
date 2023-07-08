@@ -7,7 +7,7 @@ using Aoiti.Pathfinding;
 
 public class MoveOnTilemap : MonoBehaviour
 {
-    Vector3Int[] directions=new Vector3Int[4] {Vector3Int.left,Vector3Int.right,Vector3Int.up,Vector3Int.down };
+    readonly Vector3Int[] directions=new Vector3Int[4] {Vector3Int.left,Vector3Int.right,Vector3Int.up,Vector3Int.down };
 
     public Tilemap tilemap;
     public TileAndMovementCost[] tiles;
@@ -32,9 +32,9 @@ public class MoveOnTilemap : MonoBehaviour
     }
 
 
-    public Dictionary<Vector3Int,float> connectionsAndCosts(Vector3Int a)
+    public Dictionary<Vector3Int,float> ConnectionsAndCosts(Vector3Int a)
     {
-        Dictionary<Vector3Int, float> result= new Dictionary<Vector3Int, float>();
+        Dictionary<Vector3Int, float> result= new();
         foreach (Vector3Int dir in directions)
         {
             foreach (TileAndMovementCost tmc in tiles)
@@ -53,7 +53,7 @@ public class MoveOnTilemap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pathfinder = new Pathfinder<Vector3Int>(DistanceFunc, connectionsAndCosts);
+        pathfinder = new Pathfinder<Vector3Int>(DistanceFunc, ConnectionsAndCosts);
     }
 
     // Update is called once per frame

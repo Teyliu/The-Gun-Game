@@ -1,22 +1,35 @@
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 public class LightEmulationEffect : MonoBehaviour
 {
-    public Material lightMaterial;
-    public float lightIntensity;
+    public new Renderer renderer;
+    public float pingPongSpeed = 1f;
+    public float pingPongRange = 1f;
+    private float originalIntensity;
 
-    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+    private void Start()
     {
-        if (lightMaterial != null)
+        if (renderer == null)
         {
-            lightMaterial.SetFloat("_Intensity", lightIntensity);
-            Graphics.Blit(source, destination, lightMaterial);
+            renderer = GetComponent<Renderer>();
         }
-        else
-        {
-            Graphics.Blit(source, destination);
-        }
+
+        // Store the original intensity value
+        originalIntensity = renderer.material.GetFloat("_DarknessIntensity");
+    }
+
+    private void Update()
+    {
+        // Calculate the ping pong value
+        float pingPongValue = Mathf.PingPong(Time.time * pingPongSpeed, pingPongRange);
+
+        // Update the material's intensity with the ping pong value
+        renderer.material.SetFloat("_DarknessIntensity", pingPongValue);
+    }
+
+    private void OnDestroy()
+    {
+        // Reset the material's intensity to its original value when leaving the scene
+        renderer.material.SetFloat("_DarknessIntensity", originalIntensity);
     }
 }
