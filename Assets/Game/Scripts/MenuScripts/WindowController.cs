@@ -16,23 +16,22 @@ public class WindowController : MonoBehaviour
         open.onClick.AddListener(OpenWindow);
         close.onClick.AddListener(CloseWindow);
         quit.onClick.AddListener(QuitGame);
-
         window.SetActive(false);
     }
 
-    private void OpenWindow()
+
+    public void OpenWindow()
     {
         window.SetActive(true);
     }
 
-    private void CloseWindow()
+    public void CloseWindow()
     {
         window.SetActive(false);
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Saliste");
     }
 }
