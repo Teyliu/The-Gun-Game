@@ -9,17 +9,14 @@ public class GameOver : MonoBehaviour
     private PlayerHealth playerHealth;
     private MovementScript playerMovement;
 
-    private AudioSource audioSource;
-
     private void Start()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
         playerMovement = FindObjectOfType<MovementScript>();
 
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
+        if (playerHealth != null && playerHealth.IsDead)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();
+            GameOverSequence();
         }
     }
 
@@ -33,12 +30,8 @@ public class GameOver : MonoBehaviour
 
     private void GameOverSequence()
     {
-        // Play game over sound effect
-
-        
-        audioSource.PlayOneShot(gameOverSound);
-        Debug.Log("AAAAA");
-        
+        // Play game over sound effect   
+        Debug.Log("AAAAA");     
 
         // Disable player movement
         playerMovement.enabled = false;

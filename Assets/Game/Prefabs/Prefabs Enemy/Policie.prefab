@@ -232,14 +232,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 0.1
-  speed: 0.01
+  speed: 0.05
   obstacles:
     serializedVersion: 2
     m_Bits: 1
   searchShortcut: 1
   snapToGrid: 1
   detectionRange: 3
-  pathRecalculateDelay: 2
+  pathRecalculateDelay: 1
   keepDistance: 1
   distanceToKeep: 2
   minMovementThreshold: 0.1

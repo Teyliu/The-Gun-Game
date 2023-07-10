@@ -38,8 +38,19 @@ public class EnemyMovementScript : MonoBehaviour
         previousPosition = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (!playerInRange)
+        {
+            // Check if the player is within detection range
+            float distance = Vector2.Distance(transform.position, playerTransform.position);
+            if (distance <= detectionRange)
+            {
+                playerInRange = true;
+                GetMoveCommand(playerTransform.position);
+            }
+        }
+
         if (playerInRange)
         {
             if (pathLeftToGo.Count > 0)
@@ -70,7 +81,7 @@ public class EnemyMovementScript : MonoBehaviour
             if (Vector2.Distance(transform.position, previousPosition) < minMovementThreshold)
             {
                 // If the enemy hasn't moved, set the flag for path recalculation
-                pathRecalculateTimer += Time.deltaTime;
+                pathRecalculateTimer += Time.fixedDeltaTime;
                 if (pathRecalculateTimer >= pathRecalculateDelay)
                 {
                     pathRecalculateTimer = 0f;
@@ -82,19 +93,6 @@ public class EnemyMovementScript : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (!playerInRange)
-        {
-            // Check if the player is within detection range
-            float distance = Vector2.Distance(transform.position, playerTransform.position);
-            if (distance <= detectionRange)
-            {
-                playerInRange = true;
-                GetMoveCommand(playerTransform.position);
-            }
-        }
-    }
 
     private void GetMoveCommand(Vector2 target)
     {

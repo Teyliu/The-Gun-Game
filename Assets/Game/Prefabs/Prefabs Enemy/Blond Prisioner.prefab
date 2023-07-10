@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2b80e0046c7bf42afba3fff001c2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
   contactDamage: 2
   deathSounds:
   - {fileID: 8300000, guid: 6a0730032f65df0449ab256ed780168b, type: 3}
@@ -209,14 +209,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 0.1
-  speed: 0.015
+  speed: 0.03
   obstacles:
     serializedVersion: 2
     m_Bits: 1
   searchShortcut: 1
   snapToGrid: 1
   detectionRange: 2
-  pathRecalculateDelay: 3
+  pathRecalculateDelay: 0.5
   keepDistance: 0
   distanceToKeep: 2
   minMovementThreshold: 0.1
