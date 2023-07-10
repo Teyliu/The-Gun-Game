@@ -13,11 +13,8 @@ public class ShowNamesButton : MonoBehaviour
 
     private string[] memberNames = {
         "1. Adrian Pacheco",
-        "2. Alexander Inostroza",
-        "3. Jorge Lezama",
-        "4. Manuel Salas",
-        "5. Piero Alessandro",
-        "6. Marcelo Salerno"
+        "2. Piero Alessandro",
+        "3. Marcelo Salerno"
     };
 
     private void Start()
