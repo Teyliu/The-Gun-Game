@@ -40,15 +40,6 @@ public class Rooms : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy") && areaEnemigos.IsTouching(other))
-        {
-            // Marcar enemigo como muerto (en lugar de eliminarlo directamente)
-            other.gameObject.SetActive(false);
-        }
-    }
-
     private void Update()
     {
 
