@@ -11,6 +11,7 @@ Shader "Custom/DarknessShader"
         {
             Tags { "Queue" = "Transparent" }
             Blend SrcAlpha OneMinusSrcAlpha
+            Cull Off
 
             Pass
             {

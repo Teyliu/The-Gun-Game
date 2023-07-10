@@ -11,12 +11,10 @@ public class EnemyScript : MonoBehaviour
 
     private bool isDead = false;
     private Animator animator;
-    private EnemyMovementScript enemyMovement;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        enemyMovement = GetComponent<EnemyMovementScript>();
     }
 
     void OnTriggerStay2D(Collider2D other)

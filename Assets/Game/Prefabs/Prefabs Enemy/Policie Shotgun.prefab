@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 801611217096733277}
   - component: {fileID: 3390347452553240682}
   m_Layer: 4
-  m_Name: Policie
+  m_Name: Policie Shotgun
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,14 +181,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletResource: {fileID: 7516587483268651099, guid: 75ab836898784bc42bb80f7093b0f92a, type: 3}
-  numberOfBullets: 1
-  enableSpread: 0
-  spreadAngle: 0
-  minSpeed: 8
-  maxSpeed: 12
-  bulletSpeed1: 0.1
-  bulletSpeed2: 0.8
-  shootingRadius: 4
+  numberOfBullets: 3
+  enableSpread: 1
+  spreadAngle: 50
+  minSpeed: 10
+  maxSpeed: 14
+  bulletSpeed1: 2
+  bulletSpeed2: 4
+  shootingRadius: 3
 --- !u!70 &8784855771701620182
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 0.1
-  speed: 0.05
+  speed: 0.03
   obstacles:
     serializedVersion: 2
     m_Bits: 1
@@ -243,7 +243,7 @@ MonoBehaviour:
   detectionRange: 3
   pathRecalculateDelay: 1
   keepDistance: 1
-  distanceToKeep: 2
+  distanceToKeep: 1.5
   minMovementThreshold: 0.1
 --- !u!1 &6130710293277799455
 GameObject:
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 6116545942327966490}
   - component: {fileID: 6225974553507537709}
   m_Layer: 0
-  m_Name: Mac_10_UZI
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,7 +344,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c237bb2656f6ba44282ebe83a5d31ed6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -364,8 +364,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbd3cf5370f8c6b418ef1b3f5c31b10a, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 44b7ba1b704cf4e45941ea1d2fec3611, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

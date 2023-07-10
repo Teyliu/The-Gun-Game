@@ -214,11 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee266e277a348ca41a155a38c3ccdd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  dashSpeed: 15
-  dashTime: 0.05
-  dashCooldown: 2
-  dashInvulnerabilityTime: 0.3
+  moveSpeed: 3
+  dashSpeed: 20
+  dashTime: 0.1
+  dashCooldown: 0.5
+  dashInvulnerabilityTime: 0.1
   trailDuration: 0.5
   dashKey: 32
 --- !u!114 &5168968430419450695
@@ -235,9 +235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2364305035067614150, guid: 0feaa61e1e3adf84eab5faafcd0750fe, type: 3}
   shotgunbulletPrefab: {fileID: 4605093926126463172, guid: 07898b1a8c5743f4c9a178b902d08d0f, type: 3}
-  bulletSpeed: 5
-  baseFireRate: 0.5
-  numberOfBullets: 5
+  bulletSpeed: 8
+  baseFireRate: 0.3
+  numberOfBullets: 4
   changeWeapon: {fileID: 2375162097588848318}
   shotgunAmmo: 0
 --- !u!50 &6121269612103305502

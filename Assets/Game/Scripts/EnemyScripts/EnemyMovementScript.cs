@@ -57,6 +57,13 @@ public class EnemyMovementScript : MonoBehaviour
             {
                 Vector3 dir = (Vector3)pathLeftToGo[0] - transform.position;
                 transform.position += dir.normalized * speed;
+
+                // Flip the sprite based on the movement direction
+                if (dir.x < 0)
+                    transform.localScale = new Vector2(-1, 1);
+                else if (dir.x > 0)
+                    transform.localScale = new Vector2(1, 1);
+
                 if (((Vector2)transform.position - pathLeftToGo[0]).sqrMagnitude < speed * speed)
                 {
                     transform.position = pathLeftToGo[0];
@@ -72,6 +79,12 @@ public class EnemyMovementScript : MonoBehaviour
                 {
                     // Keep distance from the player
                     direction = -direction.normalized;
+
+                    // Flip the sprite based on the movement direction
+                    if (direction.x < 0)
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    else if (direction.x > 0)
+                        transform.localScale = new Vector3(1, 1, 1);
                 }
 
                 transform.position += direction.normalized * speed;

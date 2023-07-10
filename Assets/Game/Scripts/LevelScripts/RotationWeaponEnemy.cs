@@ -42,15 +42,16 @@ public class RotationWeaponEnemy : MonoBehaviour
             // Aplicar la rotación al arma en relación al punto de rotación
             transform.rotation = Quaternion.Euler(0f, 0f, anguloDeg);
 
-            if (jugador.position.x > transform.position.x)
+            if (direccion.x > 0f)
             {
+                // Flip the object horizontally
                 transform.localScale = new Vector3(1f, 1f, 1f);
             }
-            else if (jugador.position.x < transform.position.x)
+            else if (direccion.x < 0f)
             {
-                transform.localScale = new Vector3(1f, -1f, 1f);
+                // Flip the object horizontally
+                transform.localScale = new Vector3(-1f, 1f, 1f);
             }
         }
     }
-
 }

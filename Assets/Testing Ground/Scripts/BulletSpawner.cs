@@ -11,7 +11,9 @@ public class BulletSpawner : MonoBehaviour
     public float minSpeed;
     public float maxSpeed;
 
-    public float bulletSpeed;
+    public float bulletSpeed1;
+    public float bulletSpeed2;
+    public float shootingRadius;
 
     private Transform targetTransform;
 
@@ -41,10 +43,10 @@ public class BulletSpawner : MonoBehaviour
     {
         spawnCooldown -= Time.deltaTime;
 
-        if (spawnCooldown <= 0f)
+        if (spawnCooldown <= 0f && Vector3.Distance(transform.position, targetTransform.position) <= shootingRadius)
         {
             SpawnBullets();
-            spawnCooldown = bulletSpeed;
+            spawnCooldown = Random.Range(bulletSpeed1, bulletSpeed2);
         }
     }
 
