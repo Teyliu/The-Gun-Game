@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour
     public int contactDamage = 1;
     public AudioClip[] deathSounds;
     public Drop[] drops;
+    public ParticleSystem damageParticles;
 
     private bool isDead = false;
     private Animator animator;
@@ -44,6 +45,14 @@ public class EnemyScript : MonoBehaviour
                         StartCoroutine(Die());
                         animator.SetTrigger("Die");
                     }
+                    else
+                    {
+                        if (damageParticles != null)
+                        {
+                            damageParticles.Play();
+                            StartCoroutine(StopDamageParticles());
+                        }
+                    }
                 }
             }
         }
@@ -68,6 +77,12 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
 
         Destroy(gameObject);
+    }
+
+    IEnumerator StopDamageParticles()
+    {
+        yield return new WaitForSeconds(1f);
+        damageParticles.Stop();
     }
 }
 

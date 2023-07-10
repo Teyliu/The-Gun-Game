@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 4076659977784480307}
   - component: {fileID: 6878654846323429236}
   - component: {fileID: 1195040917335149729}
-  - component: {fileID: 1263909386524940386}
   - component: {fileID: 7453827549146964362}
   - component: {fileID: 7022864901250352424}
   - component: {fileID: 8350353852801321904}
@@ -216,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   dashSpeed: 20
-  dashTime: 0.1
+  dashTime: 0.03
   dashCooldown: 0.5
   dashInvulnerabilityTime: 0.1
   trailDuration: 0.5
@@ -235,8 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2364305035067614150, guid: 0feaa61e1e3adf84eab5faafcd0750fe, type: 3}
   shotgunbulletPrefab: {fileID: 4605093926126463172, guid: 07898b1a8c5743f4c9a178b902d08d0f, type: 3}
-  bulletSpeed: 8
-  baseFireRate: 0.3
+  bulletSpeed: 10
+  baseFireRate: 0.25
   numberOfBullets: 4
   changeWeapon: {fileID: 2375162097588848318}
   shotgunAmmo: 0
@@ -331,19 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08248ee303ad6be4a9d6f12465b7b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1263909386524940386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736889550947865444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c058c8ce657b99408312a1a5d87aa12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WinnerText: {fileID: 0}
 --- !u!96 &7453827549146964362
 TrailRenderer:
   serializedVersion: 2
@@ -473,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c15710efcca9b47aa22d720fa10ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 1793847457838727335, guid: 89162e0cf0ed3a5489d217293ffa8559, type: 3}
 --- !u!70 &8350353852801321904
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

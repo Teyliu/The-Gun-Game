@@ -4,7 +4,7 @@ using TMPro;
 public class TutorialStepInteract : TutorialStepBase
 {
     public string tutorialMessage;
-    public Collider2D interactionCollider;
+    public OpenDesk openDeskScript;
 
     private TextMeshProUGUI tutorialText;
     private bool isInteractionComplete = false;
@@ -29,13 +29,9 @@ public class TutorialStepInteract : TutorialStepBase
 
     public override bool IsStepComplete()
     {
-        if (!isInteractionComplete && Input.GetKeyDown(KeyCode.E) && interactionCollider != null && interactionCollider.bounds.Contains(transform.position))
+        if (Input.GetKeyDown(KeyCode.E) && openDeskScript != null && openDeskScript.isOpened)
         {
-            PlayerScript playerScript = GetComponent<PlayerScript>();
-            if (playerScript != null)
-            {
-                isInteractionComplete = true;
-            }
+            isInteractionComplete = true;
         }
 
         return isInteractionComplete;

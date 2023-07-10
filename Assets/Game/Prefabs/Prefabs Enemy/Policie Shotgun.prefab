@@ -127,6 +127,7 @@ MonoBehaviour:
     chance: 0.05
   - item: {fileID: 6650424317916109011, guid: cbcf890184791b044a885b679f0272eb, type: 3}
     chance: 0.07
+  damageParticles: {fileID: 1793847457838727335, guid: 89162e0cf0ed3a5489d217293ffa8559, type: 3}
 --- !u!50 &4324562222265309302
 Rigidbody2D:
   serializedVersion: 4
@@ -375,4 +376,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

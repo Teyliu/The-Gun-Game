@@ -123,6 +123,7 @@ MonoBehaviour:
   drops:
   - item: {fileID: 6650424317916109011, guid: 7ca42510828ecf94b873ca1c55eb827e, type: 3}
     chance: 0.1
+  damageParticles: {fileID: 1793847457838727335, guid: 89162e0cf0ed3a5489d217293ffa8559, type: 3}
 --- !u!50 &7462455491217714324
 Rigidbody2D:
   serializedVersion: 4

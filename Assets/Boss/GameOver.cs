@@ -20,7 +20,7 @@ public class GameOver : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void  FixedUpdate()
     {
         if (playerHealth != null && playerHealth.IsDead)
         {
@@ -39,21 +39,25 @@ public class GameOver : MonoBehaviour
         // Display the game over panel
         gameOverPanel.SetActive(true);
 
+        Time.timeScale = 0f;
 
-        // Optionally, you can pause the game or perform other actions
-
-        // Handle game over logic (e.g., save high scores, etc.)
-
-        // Restart the game or perform other actions
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 
     public void Quit()
     {
         Application.Quit();
+        Time.timeScale = 1f;
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
     }
 }

@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
-    public TextMeshProUGUI WinnerText;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.tag == "Win")
+        if (other.gameObject.CompareTag("Player"))
         {
-            WinnerText.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            LoadCreditsScene();
         }
+    }
+
+    private void LoadCreditsScene()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }

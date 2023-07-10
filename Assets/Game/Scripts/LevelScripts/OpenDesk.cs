@@ -8,11 +8,11 @@ public class OpenDesk : MonoBehaviour
     public GameObject[] itemPrefabs;
     private GameObject[] displayItems;
     public float displayDuration = 2f;
-    public float dropDistance = 1f; // Distance at which items will be dropped from the desk
-    public float dropAngle = 45f; // Angle at which items will be dropped (in degrees)
+    public float dropDistance = 1f; 
+    public float dropAngle = 45f; 
     public AudioClip openSoundClip;
     private bool playerInRange;
-    private bool isOpened;
+    public bool isOpened;
 
     private void Awake()
     {
@@ -50,13 +50,11 @@ public class OpenDesk : MonoBehaviour
     private void PlayerEnteredRange()
     {
         playerInRange = true;
-        Debug.Log("Player entered range");
     }
 
     private void PlayerExitedRange()
     {
         playerInRange = false;
-        Debug.Log("Player exited range");
     }
 
     private void Update()
@@ -97,7 +95,6 @@ public class OpenDesk : MonoBehaviour
                 GameObject instantiatedItem = Instantiate(itemPrefab);
                 instantiatedItem.SetActive(true);
 
-                // Set the position at a distance from the desk
                 Vector2 dropOffset = dropDirection * dropDistance;
                 instantiatedItem.transform.position = transform.position + (Vector3)dropOffset;
             }
